@@ -1,0 +1,8 @@
+--- #YAML:1.0
+name: Yahoo-Marketing-APT
+version: 1.01
+author:
+  - Johnny Shen <nycperl@yahoo.com>
+abstract: an interface for Yahoo! Search Marketing's APT Web Services.
+license: artistic
+generated_by: Module::Build version 0.261, without YAML.pm
