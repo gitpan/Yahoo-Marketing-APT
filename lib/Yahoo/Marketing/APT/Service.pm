@@ -265,26 +265,9 @@ Yahoo::Marketing::APT::Service - a sub-class of Yahoo::Marketing::Service, and t
 This module is a base class for various Service modules (SiteService,
 FolderService, ReportService, etc) to inherit from.  It should not be used directly.
 
-There are some methods common to all Services that are documented below.
+Please see the Yahoo APT API docs at
 
-See also perldoc Yahoo::Marketing::APT::RateCardService
-                                   ...::SiteClassificationService
-                                   ...::SiteService
-                                   ...::FlashCreativeService
-                                   ...::FolderService
-                                   ...::ImageCreativeService
-                                   ...::LibraryCustomHTMLAdService
-                                   ...::LibraryFlashAdService
-                                   ...::LibraryImageAdService
-                                   ...::LibraryThirdPartyAdService
-                                   ...::AccountService
-                                   ...::GeographicalTargetingService
-                                   ...::ReportService
-                                   ...::TargetingDictionaryService
-
-Please see the API docs at
-
-TBD
+http://help.yahoo.com/l/us/yahoo/amp/webservices/reference/index.html
 
 for details about what methods are available from each of the Services.
 

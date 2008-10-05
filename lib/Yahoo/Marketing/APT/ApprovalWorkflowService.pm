@@ -9,7 +9,7 @@ use base qw/Yahoo::Marketing::APT::Service/;
 
 =head1 NAME
 
-Yahoo::Marketing::APT::AdTagService - an object that provides operations for managing approval workflow.
+Yahoo::Marketing::APT::ApprovalWorkflowService - an object that provides operations for managing approval workflow.
 
 =cut
 
@@ -17,7 +17,7 @@ Yahoo::Marketing::APT::AdTagService - an object that provides operations for man
 
 See EWS documentation online for available SOAP methods:
 
-TBD
+http://help.yahoo.com/l/us/yahoo/amp/webservices/reference/services/
 
 Also see perldoc Yahoo::Marketing::Service for functionality common to all service modules.
 

@@ -20,7 +20,7 @@ This module is also used internally by other services to get the correct EWS end
 
 See EWS documentation online for available SOAP methods:
 
-TBD
+http://help.yahoo.com/l/us/yahoo/amp/webservices/reference/services/
 
 Also see perldoc Yahoo::Marketing::Service for functionality common to all service modules.
 

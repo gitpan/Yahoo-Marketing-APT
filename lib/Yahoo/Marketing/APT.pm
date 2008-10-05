@@ -12,13 +12,13 @@ Yahoo::Marketing::APT - an interface for Yahoo! Search Marketing's APT Web Servi
 
 =head1 VERSION
 
-Version 1.01
+Version 1.02
 
 =cut
 
 # not using 3 part version #s,
 # see http://www.perlmonks.org/?node_id=520850
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 =head1 SYNOPSIS
 
@@ -95,7 +95,7 @@ And perldoc Yahoo::Marketing::ComplexTypes for Complex Type documentation
 
 Please see Perl example code at Yahoo! Developer Network:
 
-TBD
+http://help.yahoo.com/l/us/yahoo/amp/webservices/sample_code/index.html
 
 =head2 Example 1 - creating a site (from Inventory Services)
 

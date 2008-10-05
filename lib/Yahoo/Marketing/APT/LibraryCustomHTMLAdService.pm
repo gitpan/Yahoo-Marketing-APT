@@ -16,7 +16,7 @@ Yahoo::Marketing::APT::LibraryCustomHTMLAdService - an object that provides oper
 
 See EWS documentation online for available SOAP methods:
 
-TBD
+http://help.yahoo.com/l/us/yahoo/amp/webservices/reference/services/
 
 Also see perldoc Yahoo::Marketing::Service for functionality common to all service modules.
 
