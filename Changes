@@ -4,4 +4,7 @@ Revision history for Yahoo-Marketing-APT
         First version for Yahoo APT Web Services V1.0.
 1.02    5 October 2008
         Update perldoc with Yahoo APT online doc links.
+1.03    23 February 2008
+        Add two missing parameters (networkID and siteID) in PlacementGuaranteedSettings data obj.
+        Make Yahoo::Marketing-4.31 as the dependency.
 

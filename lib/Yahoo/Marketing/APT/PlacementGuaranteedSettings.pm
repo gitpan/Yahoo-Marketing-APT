@@ -25,12 +25,13 @@ sub _user_setable_attributes {
                  deliveryModel
                  impressionGoal
                  inventorySearchFilter
+                 networkID
                  price
                  priceDate
                  revenueCategory
                  revenueModel
                  sectionIDs
-                 targetDescriptor
+                 siteID
             /  );
 }
 

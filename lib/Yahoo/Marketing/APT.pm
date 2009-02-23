@@ -12,13 +12,13 @@ Yahoo::Marketing::APT - an interface for Yahoo! Search Marketing's APT Web Servi
 
 =head1 VERSION
 
-Version 1.02
+Version 1.03
 
 =cut
 
 # not using 3 part version #s,
 # see http://www.perlmonks.org/?node_id=520850
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 
 =head1 SYNOPSIS
 
@@ -97,7 +97,7 @@ Please see Perl example code at Yahoo! Developer Network:
 
 http://help.yahoo.com/l/us/yahoo/amp/webservices/sample_code/index.html
 
-=head2 Example 1 - creating a site (from Inventory Services)
+=head2 Example 1 - creating a site (from SiteService)
 
   my $site_service = Yahoo::Marketing::APT::SiteService->new
                                                        ->parse_config( section => 'sandbox' );
@@ -113,7 +113,7 @@ http://help.yahoo.com/l/us/yahoo/amp/webservices/sample_code/index.html
   # $site->ID will be set to the ID assigned to the new site.
 
 
-=head2 Example 2 - updating folders (from Library Services)
+=head2 Example 2 - updating folders (from FolderService)
 
   my $folder_service = Yahoo::Marketing::APT::FolderService->new
                                                            ->parse_config( section => 'sandbox' );
@@ -131,7 +131,7 @@ http://help.yahoo.com/l/us/yahoo/amp/webservices/sample_code/index.html
   my $folder2 = $responses[1]->folder;
 
 
-=head2 Example 3 - submitting a request for a report (from Network Services)
+=head2 Example 3 - submitting a request for a report (from ReportService)
 
   my $report_service = Yahoo::Marketing::APT::ReportService->new->parse_config( section => 'sandbox' );
 
