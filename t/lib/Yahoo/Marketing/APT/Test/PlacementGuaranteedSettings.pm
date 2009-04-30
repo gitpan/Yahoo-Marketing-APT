@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::PlacementGuaranteedSettings;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -45,7 +45,7 @@ sub test_can_create_placement_guaranteed_settings_and_set_all_fields : Test(19) 
     is( $placement_guaranteed_settings->deliveryModel, 'delivery model', 'can get delivery model' );
     is( $placement_guaranteed_settings->impressionGoal, 'impression goal', 'can get impression goal' );
     is( $placement_guaranteed_settings->inventorySearchFilter, 'inventory search filter', 'can get inventory search filter' );
-    is( $placement_guaranteed_settings->networkID, 'network id', 'can get networkID' );
+    is( $placement_guaranteed_settings->networkID, 'network id', 'can get network id' );
     is( $placement_guaranteed_settings->price, 'price', 'can get price' );
     is( $placement_guaranteed_settings->priceDate, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );
     is( $placement_guaranteed_settings->revenueCategory, 'revenue category', 'can get revenue category' );

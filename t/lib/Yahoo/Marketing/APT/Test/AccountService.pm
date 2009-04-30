@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::AccountService;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -24,6 +24,33 @@ sub SKIP_CLASS {
 }
 
 # since there is no deleteAccount function, we can't test addManagedAdvertiser(s), addManagedPublisher(s) and related APIs.
+
+sub test_can_add_and_get_currencies : Test(4) {
+    my $self = shift;
+
+    my $ysm_ws = Yahoo::Marketing::APT::AccountService->new->parse_config( section => $self->section );
+
+    my $response = $ysm_ws->addCurrencies( currencies => ['USD'] );
+    ok($response);
+    is($response->operationSucceeded, 'true');
+
+    my @currencies = $ysm_ws->getCurrencies( accountID => $ysm_ws->account );
+    ok( @currencies );
+    is( $currencies[0], 'USD' );
+}
+
+sub test_can_set_credit_limit : Test(1) {
+    my $self = shift;
+
+    my $ysm_ws = Yahoo::Marketing::APT::AccountService->new->parse_config( section => $self->section );
+
+    my $response = $ysm_ws->setCreditLimit(
+        accountID   => $ysm_ws->account,
+        creditLimit => 200,
+        currency    => 'USD',
+    );
+    ok($response);
+}
 
 sub test_can_get_account : Test(2) {
     my $self = shift;

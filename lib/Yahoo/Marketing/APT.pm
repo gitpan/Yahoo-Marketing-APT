@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use warnings;
@@ -12,13 +12,13 @@ Yahoo::Marketing::APT - an interface for Yahoo! Search Marketing's APT Web Servi
 
 =head1 VERSION
 
-Version 1.03
+Version 2.01
 
 =cut
 
 # not using 3 part version #s,
 # see http://www.perlmonks.org/?node_id=520850
-our $VERSION = '1.03';
+our $VERSION = '2.01';
 
 =head1 SYNOPSIS
 
@@ -39,7 +39,7 @@ Sample Usage:
     $service->password( 'your password' );
     $service->license( 'your license' );
     $service->account( 'your account ID' );
-    $service->endpoint( 'https://sandbox.amp.yahooapis.com/services/V1' );
+    $service->endpoint( 'https://sandbox.apt.yahooapis.com/services/V2' );
 
     # OR
 
@@ -75,7 +75,7 @@ L<http://search.cpan.org/dist/Yahoo-Marketing/>
 
 The calls you can make to the various services are documented on YSM's Technology Solutions Portal.  See
 
-L<http://help.yahoo.com/l/us/yahoo/amp/webservices/index.html>
+L<http://help.yahoo.com/l/us/yahoo/apt/webservices/index.html>
 
 =head1 EXPORT
 
@@ -95,7 +95,7 @@ And perldoc Yahoo::Marketing::ComplexTypes for Complex Type documentation
 
 Please see Perl example code at Yahoo! Developer Network:
 
-http://help.yahoo.com/l/us/yahoo/amp/webservices/sample_code/index.html
+http://help.yahoo.com/l/us/yahoo/apt/webservices/sample_code/index.html
 
 =head2 Example 1 - creating a site (from SiteService)
 
@@ -178,17 +178,17 @@ so master_account entry is optional for config file in Yahoo::Marketing::APT.
    endpoint: https://endpoint.host/services
    license: your-ews-license
    password: secretpassword
-   uri: http://amp.yahooapis.com/V1
+   uri: http://apt.yahooapis.com/V2
    username: defaultusername
-   version: V1
+   version: V2
  sandbox:
    default_account: 21921327
-   endpoint: https://sandbox.amp.yahooapis.com/services
+   endpoint: https://sandbox.apt.yahooapis.com/services
    license: 90837ada-3b26-c2e5-6d59-61d7f2fb578e
    password: mypassword
-   uri: http://amp.yahooapis.com/V1
+   uri: http://apt.yahooapis.com/V2
    username: mytestusername
-   version: V1
+   version: V2
 
 
 =head1 DEBUGGING

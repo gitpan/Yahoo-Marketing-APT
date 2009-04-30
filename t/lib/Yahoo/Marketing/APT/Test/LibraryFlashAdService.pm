@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::LibraryFlashAdService;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -29,6 +29,11 @@ sub SKIP_CLASS {
     # 'not running post tests' is a true value
     return 'not running post tests' unless $self->run_post_tests;
     return;
+}
+
+sub section {
+    my ( $self ) = @_;
+    return $self->SUPER::section().'_managed_advertiser';
 }
 
 

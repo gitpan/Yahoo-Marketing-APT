@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::SiteService;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -26,6 +26,10 @@ sub SKIP_CLASS {
     return;
 }
 
+sub section {
+    my ( $self ) = @_;
+    return $self->SUPER::section().'_managed_publisher';
+}
 
 sub startup_test_site_service : Test(startup) {
     my ( $self ) = @_;
@@ -116,13 +120,12 @@ sub test_can_update_sites : Test(2) {
     like( $updated_sites[0]->url, qr/test\.html$/, 'sites urls are updated' );
 }
 
+sub test_can_get_supported_site_languages : Test(1) {
+    my $self = shift;
 
-sub test_can_delete_site: Test(1) {
-    ok(1, 'dupe test of clean_site' );
-}
-
-sub test_can_delete_sites: Test(1) {
-    ok(1, 'dupe test of clean_sites' );
+    my $ysm_ws = Yahoo::Marketing::APT::SiteService->new->parse_config( section => $self->section );
+    my @languages = $ysm_ws->getSupportedSiteLanguages ();
+    ok( @languages);
 }
 
 

@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::NonGuaranteedDeal;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -14,9 +14,12 @@ Yahoo::Marketing::APT::NonGuaranteedDeal - a data object to represent a NonGuara
 
 sub _user_setable_attributes {
     return ( qw/ 
+                 activationTimestamp
                  buyerDetails
                  buyerRevenueSharePercentage
+                 createTimestamp
                  endDate
+                 lastUpdateTimestamp
                  name
                  sellerDetails
                  sellerRevenueSharePercentage
@@ -27,9 +30,6 @@ sub _user_setable_attributes {
 
 sub _read_only_attributes {
     return ( qw/
-                 activationTimestamp
-                 createTimestamp
-                 lastUpdateTimestamp
            / );
 }
 
@@ -41,7 +41,7 @@ __PACKAGE__->mk_accessors( __PACKAGE__->_user_setable_attributes,
 1;
 =head1 SYNOPSIS
 
-See L<http://help.yahoo.com/l/us/yahoo/amp/webservices/reference/data/> for documentation of the various data objects.
+See L<http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/data/> for documentation of the various data objects.
 
 
 =cut
@@ -56,9 +56,12 @@ Creates a new instance
 
 =over 8
 
+    activationTimestamp
     buyerDetails
     buyerRevenueSharePercentage
+    createTimestamp
     endDate
+    lastUpdateTimestamp
     name
     sellerDetails
     sellerRevenueSharePercentage
@@ -71,9 +74,6 @@ Creates a new instance
 
 =over 8
 
-    activationTimestamp
-    createTimestamp
-    lastUpdateTimestamp
 
 =back
 

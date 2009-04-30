@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::FilterService;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -25,7 +25,7 @@ sub SKIP_CLASS {
 }
 
 
-sub test_operate_filter: Test(16) {
+sub test_operate_filter: Test(20) {
     my $self = shift;
 
     my $ysm_ws = Yahoo::Marketing::APT::FilterService->new->parse_config( section => $self->section );
@@ -69,6 +69,14 @@ sub test_operate_filter: Test(16) {
     ok( $response, 'can call deactivateConditionalFilter' );
     is( $response->operationSucceeded, 'true', 'filter deactivated successfully' );
 
+    # test getBlockingImpactForConditionalFilter
+    my $blocking_impact = $ysm_ws->getBlockingImpactForConditionalFilter( conditionalFilter => $filter );
+    ok( $blocking_impact );
+
+    # test getBlockingImpactForExistingConditionalFilter
+    $blocking_impact = $ysm_ws->getBlockingImpactForExistingConditionalFilter( conditionalFilterID => $filter->ID );
+    ok( $blocking_impact );
+
     # test setUniversalFilter
     my $u_filter = Yahoo::Marketing::APT::UniversalFilter->new
                                                          ->allowReviewedAdsOnly( 'false' )
@@ -77,6 +85,14 @@ sub test_operate_filter: Test(16) {
     ok( $response, 'can call setUniversalFilter' );
     $u_filter = $response->filter;
     is( $u_filter->accountID, $ysm_ws->account, 'accountID matches' );
+
+    # test getBlockingImpactForExistingUniversalFilter
+    $blocking_impact = $ysm_ws->getBlockingImpactForExistingUniversalFilter();
+    ok( $blocking_impact );
+
+    # test getBlockingImpactForUniversalFilter
+    $blocking_impact = $ysm_ws->getBlockingImpactForUniversalFilter( universalFilter => $u_filter );
+    ok( $blocking_impact );
 
     # test getUniversalFilter
     $u_filter = $ysm_ws->getUniversalFilter();
@@ -91,7 +107,7 @@ sub test_operate_filter: Test(16) {
 }
 
 
-sub test_operate_filters: Test(13) {
+sub test_operate_filters: Test(15) {
     my $self = shift;
 
     my $ysm_ws = Yahoo::Marketing::APT::FilterService->new->parse_config( section => $self->section );
@@ -134,6 +150,15 @@ sub test_operate_filters: Test(13) {
     @responses = $ysm_ws->deactivateConditionalFilters( conditionalFilterIDs => [$filter->ID] );
     ok( @responses, 'can call deactivateConditionalFilters' );
     is( $responses[0]->operationSucceeded, 'true', 'filters deactivated successfully' );
+
+    # test getBlockingImpactForConditionalFilters
+    my @blocking_impacts = $ysm_ws->getBlockingImpactForConditionalFilters( conditionalFilters => [$filter] );
+    ok( @blocking_impacts );
+
+    # test getBlockingImpactForExistingConditionalFilters
+    @blocking_impacts = $ysm_ws->getBlockingImpactForExistingConditionalFilters( conditionalFilterIDs => [$filter->ID] );
+    ok( @blocking_impacts );
+
 
     # test getConditionalFiltersByAccountID
     @filters = $ysm_ws->getConditionalFiltersByAccountID();

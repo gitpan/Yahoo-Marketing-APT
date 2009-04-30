@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Url;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -16,15 +16,15 @@ sub _user_setable_attributes {
     return ( qw/ 
                  ID
                  accountID
+                 createTimestamp
                  editorialStatus
+                 lastUpdateTimestamp
                  url
             /  );
 }
 
 sub _read_only_attributes {
     return ( qw/
-                 createTimestamp
-                 lastUpdateTimestamp
            / );
 }
 
@@ -36,7 +36,7 @@ __PACKAGE__->mk_accessors( __PACKAGE__->_user_setable_attributes,
 1;
 =head1 SYNOPSIS
 
-See L<http://help.yahoo.com/l/us/yahoo/amp/webservices/reference/data/> for documentation of the various data objects.
+See L<http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/data/> for documentation of the various data objects.
 
 
 =cut
@@ -53,7 +53,9 @@ Creates a new instance
 
     ID
     accountID
+    createTimestamp
     editorialStatus
+    lastUpdateTimestamp
     url
 
 =back
@@ -62,8 +64,6 @@ Creates a new instance
 
 =over 8
 
-    createTimestamp
-    lastUpdateTimestamp
 
 =back
 

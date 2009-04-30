@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::UniversalFilter;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -9,7 +9,7 @@ use Test::More;
 
 use Yahoo::Marketing::APT::UniversalFilter;
 
-sub test_can_create_universal_filter_and_set_all_fields : Test(12) {
+sub test_can_create_universal_filter_and_set_all_fields : Test(13) {
 
     my $universal_filter = Yahoo::Marketing::APT::UniversalFilter->new
                                                             ->accountID( 'account id' )
@@ -22,6 +22,7 @@ sub test_can_create_universal_filter_and_set_all_fields : Test(12) {
                                                             ->inventoryAudienceGeographicWOEIDs( 'inventory audience geographic woeids' )
                                                             ->inventoryContentTopicIDs( 'inventory content topic ids' )
                                                             ->inventoryContentTypeIDs( 'inventory content type ids' )
+                                                            ->inventoryDomains( 'inventory domains' )
                                                             ->publisherAndNetworkAccountIDs( 'publisher and network account ids' )
                    ;
 
@@ -37,6 +38,7 @@ sub test_can_create_universal_filter_and_set_all_fields : Test(12) {
     is( $universal_filter->inventoryAudienceGeographicWOEIDs, 'inventory audience geographic woeids', 'can get inventory audience geographic woeids' );
     is( $universal_filter->inventoryContentTopicIDs, 'inventory content topic ids', 'can get inventory content topic ids' );
     is( $universal_filter->inventoryContentTypeIDs, 'inventory content type ids', 'can get inventory content type ids' );
+    is( $universal_filter->inventoryDomains, 'inventory domains', 'can get inventory domains' );
     is( $universal_filter->publisherAndNetworkAccountIDs, 'publisher and network account ids', 'can get publisher and network account ids' );
 
 };

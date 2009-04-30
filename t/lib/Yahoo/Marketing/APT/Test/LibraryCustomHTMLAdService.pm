@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::LibraryCustomHTMLAdService;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -24,6 +24,11 @@ sub SKIP_CLASS {
     # 'not running post tests' is a true value
     return 'not running post tests' unless $self->run_post_tests;
     return;
+}
+
+sub section {
+    my ( $self ) = @_;
+    return $self->SUPER::section().'_managed_advertiser';
 }
 
 
@@ -75,7 +80,7 @@ sub test_can_operate_library_customHTML_ad : Test(10) {
     my $library_customHTML_ad = Yahoo::Marketing::APT::LibraryCustomHTMLAd->new
                                                                           ->creativeIDs( [$self->common_test_data('test_image_creative')->ID] )
                                                                           ->height(100)
-                                                                          ->htmlTag( $html_tag )
+                                                                          ->htmlTagWithMacros( $html_tag )
                                                                           ->name( 'test customHTML ad' )
                                                                           ->width( 100 )
                                                                               ;
@@ -118,7 +123,7 @@ sub test_can_operate_library_customHTML_ads : Test(16) {
     my $library_customHTML_ad = Yahoo::Marketing::APT::LibraryCustomHTMLAd->new
                                                                           ->creativeIDs( [$self->common_test_data('test_image_creative')->ID] )
                                                                           ->height(100)
-                                                                          ->htmlTag( $html_tag )
+                                                                          ->htmlTagWithMacros( $html_tag )
                                                                           ->name( 'test customHTML ad' )
                                                                           ->width( 100 )
                                                                               ;

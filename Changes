@@ -7,4 +7,6 @@ Revision history for Yahoo-Marketing-APT
 1.03    23 February 2008
         Add two missing parameters (networkID and siteID) in PlacementGuaranteedSettings data obj.
         Make Yahoo::Marketing-4.31 as the dependency.
+2.01    30 April 2009
+        Upgrade for Yahoo APT V2.0.
 

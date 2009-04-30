@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::InventoryOptIn;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -17,16 +17,15 @@ sub _user_setable_attributes {
                  ID
                  adSizeIDs
                  contentTopicIDs
+                 createTimestamp
+                 lastUpdateTimestamp
                  managedPublisherAccountID
-                 sellingRuleID
                  siteID
             /  );
 }
 
 sub _read_only_attributes {
     return ( qw/
-                 createTimestamp
-                 lastUpdateTimestamp
            / );
 }
 
@@ -38,7 +37,7 @@ __PACKAGE__->mk_accessors( __PACKAGE__->_user_setable_attributes,
 1;
 =head1 SYNOPSIS
 
-See L<http://help.yahoo.com/l/us/yahoo/amp/webservices/reference/data/> for documentation of the various data objects.
+See L<http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/data/> for documentation of the various data objects.
 
 
 =cut
@@ -56,8 +55,9 @@ Creates a new instance
     ID
     adSizeIDs
     contentTopicIDs
+    createTimestamp
+    lastUpdateTimestamp
     managedPublisherAccountID
-    sellingRuleID
     siteID
 
 =back
@@ -66,8 +66,6 @@ Creates a new instance
 
 =over 8
 
-    createTimestamp
-    lastUpdateTimestamp
 
 =back
 

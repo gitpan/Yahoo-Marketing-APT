@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Service;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -12,83 +12,82 @@ use base qw/Yahoo::Marketing::APT Yahoo::Marketing::Service/;
 # need to override @simple_type_exceptions!
 
 my @simple_type_exceptions = (qw/
-    AccountDescriptorType
-    AccountStatus
-    AccountType
-    AdFormat
-    AdGroupStatus
-    AdLinkingType
-    AdStatus
-    AdType
-    AgreementStatus
-    ApprovalObjectType
-    ApprovalStatus
-    ApprovalTaskContext
-    ApprovalTaskStatus
-    ApprovalTrigger
-    ApprovalType 
-    ApprovalWorkflowExecutionType
-    ApprovalWorkflowNotificationType
-    ApprovalWorkflowStatus
-    AttributeValueType
-    BuyType
-    ColumnFormatType
-    Context
-    Country
-    CreativeStatus
-    CreativeType
-    Currency
-    CustomSegmentStatus
-    DataGrouping
-    DateRange
-    DayOfTheWeek
-    DealApprovalStatus
-    DeliveryMethod
-    DeliveryModel
-    DistanceUnits
-    EditorialStatus
-    FileType
-    FilterOperator
-    FolderItemType
-    FolderType
-    Language
-    LibraryAdStatus
-    LinkedCompanyType
-    LinkType
-    OperationResult
-    OptimizationMetric
-    OrderContactType
-    OrderDiscountFormat
-    OrderDiscountType
-    OrderFeeType
-    OrderStatus
-    ParentType
-    PeriodicPriceType
-    PerTransactionPriceType
-    PixelCodeType
-    PixelFrequencyType
-    PlacementStatus
-    PricingType
-    PublisherSelectorType
-    RateCardStatus
-    ReportDateRange
-    ReportExecutionStatus
-    ReportFileType
-    ReportFrequency
-    RevenueModel
-    Role
-    SearchAccountType 
-    SellingRuleType
-    SiteAccessMethod
-    SiteLanguage
-    SiteSortBy
-    SiteStatus
-    TargetingAttributeType
-    TimePeriodType
-    TimeZone
-    UserStatus
-    WindowTarget
-    YahooPremiumBehavioralSegmentTargetingProgram
+AccountDescriptorType
+AccountStatus
+AccountType
+AdFormat
+AdGroupStatus
+AdLinkingType
+AdStatus
+AdStatus
+AdType
+AgreementStatus
+ApprovalObjectType
+ApprovalStatus
+ApprovalTaskContext
+ApprovalTaskStatus
+ApprovalTrigger
+ApprovalType
+ApprovalWorkflowExecutionType
+ApprovalWorkflowNotificationType
+ApprovalWorkflowStatus
+BuyType
+ColumnFormatType
+ComplaintStatus
+Context
+Country
+CreativeStatus
+CreativeType
+Currency
+CustomGeoAreaStatus
+CustomSegmentStatus
+DataGrouping
+DayOfTheWeek
+DealApprovalStatus
+DeliveryMethod
+DeliveryModel
+DiscountFormat
+DiscountType
+DistanceUnits
+EditorialStatus
+FileType
+FolderItemType
+FolderType
+Language
+LibraryAdStatus
+LinkedCompanyType
+LinkType
+Locale
+OperationResult
+OptimizationMetric
+OrderContactType
+OrderFeeType
+OrderStatus
+PixelCodeType
+PixelFrequencyType
+PlacementStatus
+PricingType
+PublisherSelectorType
+RateCardStatus
+ReportDateRange
+ReportExecutionStatus
+ReportFrequency
+RevenueModel
+Role
+SearchAccountType
+SellingRuleType
+SiteAccessMethod
+SiteStatus
+TagStatus
+TagType
+TargetingAttributeType
+TemplateStatus
+TimePeriodType
+TimeZone
+UserStatus
+VideoCreativeProcessingStatus
+WindowTarget
+YahooPremiumBehavioralSegmentTargetingProgram
 			      /);
 
 
@@ -267,7 +266,7 @@ FolderService, ReportService, etc) to inherit from.  It should not be used direc
 
 Please see the Yahoo APT API docs at
 
-http://help.yahoo.com/l/us/yahoo/amp/webservices/reference/index.html
+http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/index.html
 
 for details about what methods are available from each of the Services.
 

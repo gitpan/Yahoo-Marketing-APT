@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::Account;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -9,7 +9,7 @@ use Test::More;
 
 use Yahoo::Marketing::APT::Account;
 
-sub test_can_create_account_and_set_all_fields : Test(16) {
+sub test_can_create_account_and_set_all_fields : Test(17) {
 
     my $account = Yahoo::Marketing::APT::Account->new
                                            ->ID( 'id' )
@@ -19,7 +19,8 @@ sub test_can_create_account_and_set_all_fields : Test(16) {
                                            ->category( 'category' )
                                            ->companyID( 'company id' )
                                            ->companyName( 'company name' )
-                                           ->currency( 'currency' )
+                                           ->companyNameFurigana( 'company name furigana' )
+                                           ->defaultCurrency( 'default currency' )
                                            ->externalAccountID( 'external account id' )
                                            ->language( 'language' )
                                            ->location( 'location' )
@@ -38,7 +39,8 @@ sub test_can_create_account_and_set_all_fields : Test(16) {
     is( $account->category, 'category', 'can get category' );
     is( $account->companyID, 'company id', 'can get company id' );
     is( $account->companyName, 'company name', 'can get company name' );
-    is( $account->currency, 'currency', 'can get currency' );
+    is( $account->companyNameFurigana, 'company name furigana', 'can get company name furigana' );
+    is( $account->defaultCurrency, 'default currency', 'can get default currency' );
     is( $account->externalAccountID, 'external account id', 'can get external account id' );
     is( $account->language, 'language', 'can get language' );
     is( $account->location, 'location', 'can get location' );

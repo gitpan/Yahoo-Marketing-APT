@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::ImageCreativeService;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -24,6 +24,10 @@ sub SKIP_CLASS {
     return;
 }
 
+sub section {
+    my ( $self ) = @_;
+    return $self->SUPER::section().'_managed_advertiser';
+}
 
 sub startup_test_creative_folder_service : Test(startup) {
     my ( $self ) = @_;

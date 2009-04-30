@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::ReportingTagService;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -24,6 +24,10 @@ sub SKIP_CLASS {
     return;
 }
 
+sub section {
+    my ( $self ) = @_;
+    return $self->SUPER::section().'_managed_publisher';
+}
 
 sub test_can_operate_reporting_tag : Test(9) {
     my $self = shift;

@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::AdTagService;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -41,7 +41,12 @@ sub test_get_ad_tag : Test(1) {
     my $self = shift;
 
     my $dic_ws = Yahoo::Marketing::APT::TargetingDictionaryService->new->parse_config( section => $self->section );
-    my @values = $dic_ws->getTargetingAttributes(
+    my @ct_values = $dic_ws->getTargetingAttributes(
+        targetingAttributeType => 'ContentTopic',
+        startElement           => 0,
+        numElements            => 10,
+    );
+    my @as_values = $dic_ws->getTargetingAttributes(
         targetingAttributeType => 'AdSize',
         startElement           => 0,
         numElements            => 10,
@@ -54,7 +59,7 @@ sub test_get_ad_tag : Test(1) {
     my $ad_tag = $ysm_ws->getAdTag(
         adTagParameters => Yahoo::Marketing::APT::AdTagParameters->new
                                                                  ->siteID( $site_id )
-                                                                 ->targetingAttributeDescriptors( [Yahoo::Marketing::APT::TargetingAttributeDescriptor->new->targetingAttributeID($values[0]->ID)->targetingAttributeType('AdSize')] ) );
+                                                                 ->targetingAttributeDescriptors( [Yahoo::Marketing::APT::TargetingAttributeDescriptor->new->targetingAttributeID($ct_values[0]->ID)->targetingAttributeType('ContentTopic'), Yahoo::Marketing::APT::TargetingAttributeDescriptor->new->targetingAttributeID($as_values[0]->ID)->targetingAttributeType('AdSize')] ) );
 
     ok( $ad_tag, 'can get ad tag' );
 }

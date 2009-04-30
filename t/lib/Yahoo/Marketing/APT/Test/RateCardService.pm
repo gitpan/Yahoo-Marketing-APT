@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::RateCardService;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -14,7 +14,7 @@ use Yahoo::Marketing::APT::RateCard;
 use Yahoo::Marketing::APT::DefaultBaseRate;
 use Yahoo::Marketing::APT::BaseRate;
 use Yahoo::Marketing::APT::RateAdjustment;
-use Yahoo::Marketing::APT::TargetingAttributeDescriptor;
+use Yahoo::Marketing::APT::TargetingAttributeDescriptorWithAny;
 
 use DateTime::Format::W3CDTF;
 use Data::Dumper;
@@ -29,6 +29,10 @@ sub SKIP_CLASS {
     return;
 }
 
+sub section {
+    my ( $self ) = @_;
+    return $self->SUPER::section().'_managed_publisher';
+}
 
 sub startup_test_site_service : Test(startup) {
     my ( $self ) = @_;
@@ -43,7 +47,7 @@ sub shutdown_test_site_service : Test(shutdown) {
 }
 
 
-sub test_can_operate_rate_card : Test(35) {
+sub test_can_operate_rate_card : Test(37) {
      my $self = shift;
 
      my $ysm_ws = Yahoo::Marketing::APT::RateCardService->new->parse_config( section => $self->section );
@@ -56,6 +60,7 @@ sub test_can_operate_rate_card : Test(35) {
      my $start_datetime = $formatter->format_datetime( $datetime );
 
      my $rate_card =  Yahoo::Marketing::APT::RateCard->new
+                                                     ->currency( 'USD' )
                                                      ->name( 'test rate card' )
                                                      ->siteID( $self->common_test_data( 'test_site' )->ID )
                                                      ->startDate( $start_datetime )
@@ -97,14 +102,14 @@ sub test_can_operate_rate_card : Test(35) {
          startElement           => 0,
          numElements            => 1000,
      );
-     my $targeting_attr_desc = Yahoo::Marketing::APT::TargetingAttributeDescriptor->new
-                                                                                  ->targetingAttributeID( $targeting_attributes[0]->ID )
-                                                                                  ->targetingAttributeType( 'Gender' )
-                                                                                      ;
+     my $targeting_attr_desc = Yahoo::Marketing::APT::TargetingAttributeDescriptorWithAny->new
+                                                                                         ->targetingAttributeID( $targeting_attributes[0]->ID )
+                                                                                         ->targetingAttributeType( 'Gender' )
+                                                                                             ;
      my $base_rate = Yahoo::Marketing::APT::BaseRate->new
                                                     ->floorCPM( '5' )
                                                     ->rateCardID( $rate_card->ID )
-                                                    ->targetingAttributeDescriptors( [$targeting_attr_desc] )
+                                                    ->targetingAttributeDescriptorsWithAny( [$targeting_attr_desc] )
                                                         ;
      # test addBaseRate
      $response = $ysm_ws->addBaseRate( baseRate => $base_rate );
@@ -131,14 +136,14 @@ sub test_can_operate_rate_card : Test(35) {
          startElement           => 0,
          numElements            => 1000,
      );
-     $targeting_attr_desc = Yahoo::Marketing::APT::TargetingAttributeDescriptor->new
-                                                                               ->targetingAttributeID( $targeting_attributes[1]->ID )
-                                                                               ->targetingAttributeType( 'Income' )
-                                                                                   ;
+     $targeting_attr_desc = Yahoo::Marketing::APT::TargetingAttributeDescriptorWithAny->new
+                                                                                      ->targetingAttributeID( $targeting_attributes[1]->ID )
+                                                                                      ->targetingAttributeType( 'Income' )
+                                                                                          ;
      my $rate_adj = Yahoo::Marketing::APT::RateAdjustment->new
                                                          ->percentageMarkup( 50 )
                                                          ->rateCardID( $rate_card->ID )
-                                                         ->targetingAttributeDescriptors( [$targeting_attr_desc] )
+                                                         ->targetingAttributeDescriptorsWithAny( [$targeting_attr_desc] )
                                                              ;
 
      # test addRateAdjustment
@@ -155,7 +160,7 @@ sub test_can_operate_rate_card : Test(35) {
      $rate_adj->floorCPM( undef );
      $rate_adj->percentageMarkup( 40 );
      $targeting_attr_desc->targetingAttributeID( $targeting_attributes[2]->ID );
-     $rate_adj->targetingAttributeDescriptors( [$targeting_attr_desc] );
+     $rate_adj->targetingAttributeDescriptorsWithAny( [$targeting_attr_desc] );
      # test updateRateAdjustment
      $response = $ysm_ws->updateRateAdjustment( rateAdjustment => $rate_adj );
      ok( $response, 'can call updateRateAdjustment' );
@@ -194,6 +199,14 @@ sub test_can_operate_rate_card : Test(35) {
          $ysm_ws->deleteRateCard( rateCardID => $new_rate_card->ID );
      }
 
+     # test getAllActiveCustomGeoAreas
+     my @desc = $ysm_ws->getAllActiveCustomGeoAreas();
+     ok( @desc );
+
+     # test getAllActiveCustomSegments
+     @desc = $ysm_ws->getAllActiveCustomSegments();
+     ok( @desc );
+
      # test deleteRateCard
      $response = $ysm_ws->deleteRateCard( rateCardID => $rate_card->ID );
      ok( $response, 'can call deleteRateCard' );
@@ -214,6 +227,7 @@ sub test_can_operate_rate_cards : Test(41) {
      my $start_datetime = $formatter->format_datetime( $datetime );
 
      my $rate_card =  Yahoo::Marketing::APT::RateCard->new
+                                                     ->currency( 'USD' )
                                                      ->name( 'test rate card' )
                                                      ->siteID( $self->common_test_data( 'test_site' )->ID )
                                                      ->startDate( $start_datetime )
@@ -265,14 +279,14 @@ sub test_can_operate_rate_cards : Test(41) {
          startElement           => 0,
          numElements            => 1000,
      );
-     my $targeting_attr_desc = Yahoo::Marketing::APT::TargetingAttributeDescriptor->new
-                                                                                  ->targetingAttributeID( $targeting_attributes[0]->ID )
-                                                                                  ->targetingAttributeType( 'Gender' )
-                                                                                      ;
+     my $targeting_attr_desc = Yahoo::Marketing::APT::TargetingAttributeDescriptorWithAny->new
+                                                                                         ->targetingAttributeID( $targeting_attributes[0]->ID )
+                                                                                         ->targetingAttributeType( 'Gender' )
+                                                                                             ;
      my $base_rate = Yahoo::Marketing::APT::BaseRate->new
                                                     ->floorCPM( '5' )
                                                     ->rateCardID( $rate_card->ID )
-                                                    ->targetingAttributeDescriptors( [$targeting_attr_desc] )
+                                                    ->targetingAttributeDescriptorsWithAny( [$targeting_attr_desc] )
                                                         ;
      # test addBaseRates
      @responses = $ysm_ws->addBaseRates( baseRates => [$base_rate] );
@@ -286,7 +300,7 @@ sub test_can_operate_rate_cards : Test(41) {
      is( $base_rates[0]->rateCardID, $rate_card->ID, 'rate card id matches' );
 
      # test getBaseRatesByRateCardID
-     @base_rates = $ysm_ws->getBaseRatesByRateCardID( rateCardID => $rate_card->ID, startElement => 0, numElements => 1000 );
+     @base_rates = $ysm_ws->getBaseRatesByRateCardID( rateCardID => $rate_card->ID );
      ok( @base_rates, 'can call getBaseRatesByRateCardID' );
      $find = 0;
      foreach ( @base_rates ) {
@@ -308,14 +322,14 @@ sub test_can_operate_rate_cards : Test(41) {
          startElement           => 0,
          numElements            => 1000,
      );
-     $targeting_attr_desc = Yahoo::Marketing::APT::TargetingAttributeDescriptor->new
-                                                                               ->targetingAttributeID( $targeting_attributes[1]->ID )
-                                                                               ->targetingAttributeType( 'Income' )
-                                                                                   ;
+     $targeting_attr_desc = Yahoo::Marketing::APT::TargetingAttributeDescriptorWithAny->new
+                                                                                      ->targetingAttributeID( $targeting_attributes[1]->ID )
+                                                                                      ->targetingAttributeType( 'Income' )
+                                                                                          ;
      my $rate_adj = Yahoo::Marketing::APT::RateAdjustment->new
                                                          ->percentageMarkup( 50 )
                                                          ->rateCardID( $rate_card->ID )
-                                                         ->targetingAttributeDescriptors( [$targeting_attr_desc] )
+                                                         ->targetingAttributeDescriptorsWithAny( [$targeting_attr_desc] )
                                                              ;
 
      # test addRateAdjustments
@@ -341,7 +355,7 @@ sub test_can_operate_rate_cards : Test(41) {
      $rate_adj->floorCPM( undef );
      $rate_adj->percentageMarkup( 40 );
      $targeting_attr_desc->targetingAttributeID( $targeting_attributes[2]->ID );
-     $rate_adj->targetingAttributeDescriptors( [$targeting_attr_desc] );
+     $rate_adj->targetingAttributeDescriptorsWithAny( [$targeting_attr_desc] );
      # test updateRateAdjustments
      @responses = $ysm_ws->updateRateAdjustments( rateAdjustments => [$rate_adj] );
      ok( @responses, 'can call updateRateAdjustments' );

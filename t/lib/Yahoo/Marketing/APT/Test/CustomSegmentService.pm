@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::CustomSegmentService;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -25,7 +25,7 @@ sub SKIP_CLASS {
 }
 
 
-sub test_operate_custom_segment : Test(12) {
+sub test_operate_custom_segment : Test(14) {
     my $self = shift;
 
     my $ysm_ws = Yahoo::Marketing::APT::CustomSegmentService->new->parse_config( section => $self->section );
@@ -63,6 +63,11 @@ sub test_operate_custom_segment : Test(12) {
     is( $segment->description, 'test description', 'description matches' );
     is( $segment->status, 'Active', 'custom segment activated' );
 
+    # test getExternalCustomSegment
+    my $desc = $ysm_ws->getExternalCustomSegment( customSegmentID => $segment->ID );
+    ok( $desc );
+    is( $desc->accountID, $ysm_ws->account );
+
     # test deactivateCustomSegment
     $response = $ysm_ws->deactivateCustomSegment( customSegmentID => $segment->ID );
     ok( $response, 'can call deactivateCustomSegment' );
@@ -75,7 +80,7 @@ sub test_operate_custom_segment : Test(12) {
 }
 
 
-sub test_operate_custom_segments : Test(13) {
+sub test_operate_custom_segments : Test(15) {
     my $self = shift;
 
     my $ysm_ws = Yahoo::Marketing::APT::CustomSegmentService->new->parse_config( section => $self->section );
@@ -112,6 +117,11 @@ sub test_operate_custom_segments : Test(13) {
     ok( @segments, 'can call getCustomSegments' );
     is( $segments[0]->description, 'test description', 'description matches' );
     is( $segments[0]->status, 'Active', 'custom segment activated' );
+
+    # test getExternalCustomSegments
+    my @descs = $ysm_ws->getExternalCustomSegments( customSegmentIDs => [$segment->ID] );
+    ok( @descs );
+    is( $descs[0]->accountID, $ysm_ws->account );
 
     # test deactivateCustomSegments
     @responses = $ysm_ws->deactivateCustomSegments( customSegmentIDs => [$segment->ID] );

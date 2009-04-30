@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::PostTest;
-# Copyright (c) 2008 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -169,6 +169,7 @@ sub create_site {
 
     my $num = $$ + $site_count++;
     my $site = Yahoo::Marketing::APT::Site->new
+                                     ->language( 'en-US' )
                                      ->name( 'test site '.$num )
                                      ->url( 'http://www.'.$num.'.com' )
                                              ;
@@ -188,15 +189,17 @@ sub create_sites {
     my $ysm_ws = Yahoo::Marketing::APT::SiteService->new->parse_config( section => $self->section );
 
     my $site1 = Yahoo::Marketing::APT::Site->new
+                                           ->language( 'en-US' )
                                            ->name( 'test site '.($$ + $site_count++).' 1' )
                                            ->url( 'http://www.'.$$.'1.com' )
                                              ;
     my $site2 = Yahoo::Marketing::APT::Site->new
+                                           ->language( 'en-US' )
                                            ->name( 'test site '.($$ + $site_count++).' 2' )
                                            ->url( 'http://www.'.$$.'2.com' )
                                              ;
     my $site3 = Yahoo::Marketing::APT::Site->new
-
+                                           ->language( 'en-US' )
                                            ->name( 'test site '.($$ + $site_count++).' 3' )
                                            ->url( 'http://www.'.$$.'3.com' )
                                              ;
@@ -278,6 +281,7 @@ sub create_contact {
                                                 ->firstName( 'sdkTestFirstName' )
                                                 ->isPrimary( 'true' )
                                                 ->lastName( 'sdkTestLastName' )
+                                                ->locale( 'en_US' )
                                                     ;
 
     my $response = $ysm_ws->addContactToManagedAccount( contact => $contact );
