@@ -19,7 +19,7 @@ WriteMakefile
                            'Test::Simple' => '0.60',
                            'XML::XPath' => '1.10',
                            'YAML' => '0.01',
-                           'Yahoo::Marketing' => '5.02'
+                           'Yahoo::Marketing' => '5.04'
                          },
           'INSTALLDIRS' => 'site',
           'EXE_FILES' => [],

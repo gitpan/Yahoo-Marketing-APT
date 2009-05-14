@@ -10,8 +10,8 @@ use base qw/Yahoo::Marketing::APT Yahoo::Marketing::Service/;
 
 
 # need to override @simple_type_exceptions!
-
-my @simple_type_exceptions = (qw/
+sub simple_type_exceptions {
+return (qw/
 AccountDescriptorType
 AccountStatus
 AccountType
@@ -89,7 +89,7 @@ VideoCreativeProcessingStatus
 WindowTarget
 YahooPremiumBehavioralSegmentTargetingProgram
 			      /);
-
+}
 
 # override parse_config to use yahoo-marketing-apt.yml as the default config file
 sub parse_config {
@@ -168,88 +168,6 @@ sub _add_master_account_to_header { return 0; }  # default to false
 sub _class_name {
     __PACKAGE__ =~ /^(.+)Service/;
     return $1;
-}
-
-# following should be deleted
-sub _escape_xml_baddies {
-    my ( $self, $input ) = @_;
-    return unless defined $input;
-
-    # trouble with HTML::Entities::encode_entities is it will happily double encode things
-    # SOAP::Lite::encode_data also appears to have this problem
-    $input =~ s/&(?![#\w]+;)/&amp;/g; # encode &, but not the & in already encoded string (&amp;)
-
-    # if string is already wrapped <![CDATA[ ... ]]>, leave it as is.
-    if ( $input =~ /^<\!\[CDATA\[(.+)\]\]>$/s ) {
-        return $input;
-    }
-    # otherwise, encode < and >
-    $input =~ s/</&lt;/g;             # encode <
-    $input =~ s/>/&gt;/g;             # encode >
-    return $input;
-}
-
-
-sub _deserialize {
-    my ( $self, $method, $hash, $type ) = @_;
-
-    my @return_values;
-
-    my $obj;
-
-    if( ref $hash eq 'ARRAY' ){
-        return map { $self->_deserialize( $method, $_, $type ) } @{ $hash };
-    }elsif( $type =~ /ArrayOf(.*)/ ){
-        my $element_type = $1;
-        return [ map { $self->_deserialize( $method, $_, $element_type ) } ( ref $hash eq 'ARRAY' ? @{ $hash } : values %$hash ) ];
-    }elsif( $type !~ /^xsd:|^[Ss]tring$|^[Ii]nt$|^[Ll]ong$|^[Dd]ouble|^Continent$/
-        and ! grep { $type =~ /^(tns:)?$_$/ } @simple_type_exceptions ){
-
-        $type =~ s/^tns://;
-
-        # pull it in
-        my $pkg = $self->_class_name;
-        my $class = ($pkg).ucfirst( $type );
-        eval "require $class";
-
-        die "whoops, couldn't load $class: $@" if $@;
-
-        $obj = $class->new;
-    }elsif( ref $hash ne 'HASH' ){
-        return $hash;
-    }else{  # this should never be reached
-        confess "Please send this stack trace to the module author.\ntype = $type, hash = $hash";
-    }
-
-    foreach my $key ( keys %$hash ){
-        if( not ref $hash->{ $key } ){
-            $obj->$key( $hash->{ $key } );
-        }elsif( ref $hash->{ $key } eq 'ARRAY' ){ # better have an array arguement mapping
-                my $type = $self->_complex_type( $type, $key );
-
-                return [ map { $self->_deserialize( $method, $_, $type ) } @{ $hash->{ $key } } ];
-        }elsif( ref $hash->{ $key } eq 'HASH' ){
-            my $type = $self->_complex_types( $type, $key );
-
-            # special case for array types returning as just a hash with a single element.  Annoying.
-            if( $type =~ /^ArrayOf/ ){
-                $type = $self->_complex_types( $method, $type );
-                $obj->$key( [ $self->_deserialize( $method, $hash->{ $key }->{ (keys %{ $hash->{ $key } })[0] }, $type ) ] );
-                next;
-            }
-
-            $obj->$key( $self->_deserialize( $method, $hash->{ $key }, $type ) );
-        }else{
-            warn "can't handle $key in response yet ( $hash->{ $key } )\n";
-        }
-    }
-
-    push @return_values, $obj;
-
-    return wantarray
-            ? @return_values
-            : $return_values[0]
-    ;
 }
 
 1; # end of Yahoo::Marketing::APT::Service

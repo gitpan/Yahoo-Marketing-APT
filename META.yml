@@ -1,6 +1,6 @@
 ---
 name: Yahoo-Marketing-APT
-version: 2.01
+version: 2.02
 author:
   - 'Johnny Shen <nycperl@yahoo.com>'
 abstract: an interface for Yahoo! Search Marketing's APT Web Services.
@@ -22,7 +22,7 @@ requires:
   Test::Simple: 0.60
   XML::XPath: 1.10
   YAML: 0.01
-  Yahoo::Marketing: 5.02
+  Yahoo::Marketing: 5.04
   perl: 5.6.1
 build_requires:
   Module::Build: 0.26
@@ -31,7 +31,7 @@ build_requires:
 provides:
   Yahoo::Marketing::APT:
     file: lib/Yahoo/Marketing/APT.pm
-    version: 2.01
+    version: 2.02
   Yahoo::Marketing::APT::Account:
     file: lib/Yahoo/Marketing/APT/Account.pm
   Yahoo::Marketing::APT::AccountDescriptor:

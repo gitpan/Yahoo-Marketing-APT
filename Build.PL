@@ -130,7 +130,7 @@ my $build = $builder->new(
         'Module::Build'  => '0.26',  
     },
     requires => {
-        'Yahoo::Marketing'           => '5.02',
+        'Yahoo::Marketing'           => '5.04',
         'Test::More'                 => 0,
         'perl'                       => '5.6.1',   
         'SOAP::Lite'                 => '0.66',

@@ -9,4 +9,6 @@ Revision history for Yahoo-Marketing-APT
         Make Yahoo::Marketing-4.31 as the dependency.
 2.01    30 April 2009
         Upgrade for Yahoo APT V2.0.
-
+2.02    14 May 2009
+        Follow changes in Yahoo::Marketing-5.04, making simple_type_exceptions a method.
+        Remove unnecessary methods.
