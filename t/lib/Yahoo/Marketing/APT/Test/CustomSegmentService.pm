@@ -25,7 +25,7 @@ sub SKIP_CLASS {
 }
 
 
-sub test_operate_custom_segment : Test(14) {
+sub test_operate_custom_segment : Test(12) {
     my $self = shift;
 
     my $ysm_ws = Yahoo::Marketing::APT::CustomSegmentService->new->parse_config( section => $self->section );
@@ -63,11 +63,6 @@ sub test_operate_custom_segment : Test(14) {
     is( $segment->description, 'test description', 'description matches' );
     is( $segment->status, 'Active', 'custom segment activated' );
 
-    # test getExternalCustomSegment
-    my $desc = $ysm_ws->getExternalCustomSegment( customSegmentID => $segment->ID );
-    ok( $desc );
-    is( $desc->accountID, $ysm_ws->account );
-
     # test deactivateCustomSegment
     $response = $ysm_ws->deactivateCustomSegment( customSegmentID => $segment->ID );
     ok( $response, 'can call deactivateCustomSegment' );
@@ -80,7 +75,7 @@ sub test_operate_custom_segment : Test(14) {
 }
 
 
-sub test_operate_custom_segments : Test(15) {
+sub test_operate_custom_segments : Test(13) {
     my $self = shift;
 
     my $ysm_ws = Yahoo::Marketing::APT::CustomSegmentService->new->parse_config( section => $self->section );
@@ -117,11 +112,6 @@ sub test_operate_custom_segments : Test(15) {
     ok( @segments, 'can call getCustomSegments' );
     is( $segments[0]->description, 'test description', 'description matches' );
     is( $segments[0]->status, 'Active', 'custom segment activated' );
-
-    # test getExternalCustomSegments
-    my @descs = $ysm_ws->getExternalCustomSegments( customSegmentIDs => [$segment->ID] );
-    ok( @descs );
-    is( $descs[0]->accountID, $ysm_ws->account );
 
     # test deactivateCustomSegments
     @responses = $ysm_ws->deactivateCustomSegments( customSegmentIDs => [$segment->ID] );

@@ -9,7 +9,7 @@ use Test::More;
 
 use Yahoo::Marketing::APT::Account;
 
-sub test_can_create_account_and_set_all_fields : Test(17) {
+sub test_can_create_account_and_set_all_fields : Test(19) {
 
     my $account = Yahoo::Marketing::APT::Account->new
                                            ->ID( 'id' )
@@ -24,6 +24,8 @@ sub test_can_create_account_and_set_all_fields : Test(17) {
                                            ->externalAccountID( 'external account id' )
                                            ->language( 'language' )
                                            ->location( 'location' )
+					   ->managedAccount( 'managed account' )
+					   ->managedAgencyBillingEnabled( 'managed agency billing enabled' )
                                            ->managingAccountID( 'managing account id' )
                                            ->status( 'status' )
                                            ->timezone( 'timezone' )
@@ -44,6 +46,8 @@ sub test_can_create_account_and_set_all_fields : Test(17) {
     is( $account->externalAccountID, 'external account id', 'can get external account id' );
     is( $account->language, 'language', 'can get language' );
     is( $account->location, 'location', 'can get location' );
+    is( $account->managedAccount, 'managed account', 'can get managed account' );
+    is( $account->managedAgencyBillingEnabled, 'managed agency billing enabled', 'can get managed agency billing enabled' );
     is( $account->managingAccountID, 'managing account id', 'can get managing account id' );
     is( $account->status, 'status', 'can get status' );
     is( $account->timezone, 'timezone', 'can get timezone' );

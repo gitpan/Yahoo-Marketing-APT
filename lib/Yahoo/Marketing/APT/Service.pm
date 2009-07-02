@@ -22,6 +22,7 @@ AdStatus
 AdStatus
 AdType
 AgreementStatus
+ApprovalCategory
 ApprovalObjectType
 ApprovalStatus
 ApprovalTaskContext
@@ -31,6 +32,7 @@ ApprovalType
 ApprovalWorkflowExecutionType
 ApprovalWorkflowNotificationType
 ApprovalWorkflowStatus
+AudienceSegmentStatus
 BuyType
 ColumnFormatType
 ComplaintStatus
@@ -40,7 +42,7 @@ CreativeStatus
 CreativeType
 Currency
 CustomGeoAreaStatus
-CustomSegmentStatus
+CustomTargetingAttributeOwnership
 DataGrouping
 DayOfTheWeek
 DealApprovalStatus
@@ -58,17 +60,20 @@ LibraryAdStatus
 LinkedCompanyType
 LinkType
 Locale
+Month
 OperationResult
 OptimizationMetric
 OrderContactType
 OrderFeeType
 OrderStatus
+Origin
 PixelCodeType
 PixelFrequencyType
 PlacementStatus
 PricingType
 PublisherSelectorType
 RateCardStatus
+ReportCurrency
 ReportDateRange
 ReportExecutionStatus
 ReportFrequency
@@ -76,8 +81,10 @@ RevenueModel
 Role
 SearchAccountType
 SellingRuleType
+ServiceContext
 SiteAccessMethod
 SiteStatus
+SourceOwnerType
 TagStatus
 TagType
 TargetingAttributeType

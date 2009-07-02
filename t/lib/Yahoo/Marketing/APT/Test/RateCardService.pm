@@ -47,7 +47,7 @@ sub shutdown_test_site_service : Test(shutdown) {
 }
 
 
-sub test_can_operate_rate_card : Test(37) {
+sub test_can_operate_rate_card : Test(35) {
      my $self = shift;
 
      my $ysm_ws = Yahoo::Marketing::APT::RateCardService->new->parse_config( section => $self->section );
@@ -198,14 +198,6 @@ sub test_can_operate_rate_card : Test(37) {
          my $new_rate_card = $response->rateCard;
          $ysm_ws->deleteRateCard( rateCardID => $new_rate_card->ID );
      }
-
-     # test getAllActiveCustomGeoAreas
-     my @desc = $ysm_ws->getAllActiveCustomGeoAreas();
-     ok( @desc );
-
-     # test getAllActiveCustomSegments
-     @desc = $ysm_ws->getAllActiveCustomSegments();
-     ok( @desc );
 
      # test deleteRateCard
      $response = $ysm_ws->deleteRateCard( rateCardID => $rate_card->ID );

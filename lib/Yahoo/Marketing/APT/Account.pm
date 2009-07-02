@@ -26,6 +26,8 @@ sub _user_setable_attributes {
                  externalAccountID
                  language
                  location
+                 managedAccount
+                 managedAgencyBillingEnabled
                  managingAccountID
                  status
                  timezone
@@ -73,6 +75,8 @@ Creates a new instance
     externalAccountID
     language
     location
+    managedAccount
+    managedAgencyBillingEnabled
     managingAccountID
     status
     timezone

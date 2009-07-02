@@ -19,7 +19,7 @@ Sample Usage:
     $service->password( 'your password' );
     $service->license( 'your license' );
     $service->account( 'your account ID' );
-    $service->endpoint( 'https://sandbox.apt.yahooapis.com/services/V2' );
+    $service->endpoint( 'https://sandbox.apt.yahooapis.com/services/V3' );
     $service->wsdl_init;
 
     # OR

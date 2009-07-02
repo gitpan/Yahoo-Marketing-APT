@@ -249,10 +249,7 @@ sub test_can_get_sites_by_account_id: Test(2) {
     my $ysm_ws = Yahoo::Marketing::APT::SiteService->new->parse_config( section => $self->section );
 
     my @sites;
-    @sites = $ysm_ws->getSitesByAccountID(
-        startElement => 0,
-        numElements  => 1000,
-    );
+    @sites = $ysm_ws->getSitesByAccountID();
 
     ok( @sites, 'can get sites by account id' );
 	like( $sites[0]->ID, qr/\d+/, 'site ID matches');

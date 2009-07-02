@@ -15,9 +15,13 @@ Yahoo::Marketing::APT::TargetingAttributeValue - a data object to represent a Ta
 sub _user_setable_attributes {
     return ( qw/ 
                  ID
+                 accountID
+                 customTargetingAttributeOwnership
                  description
                  name
+                 origin
                  parentID
+                 sourceOwner
                  type
             /  );
 }
@@ -51,9 +55,13 @@ Creates a new instance
 =over 8
 
     ID
+    accountID
+    customTargetingAttributeOwnership
     description
     name
+    origin
     parentID
+    sourceOwner
     type
 
 =back

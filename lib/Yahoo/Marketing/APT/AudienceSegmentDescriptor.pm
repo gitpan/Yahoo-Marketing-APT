@@ -1,4 +1,4 @@
-package Yahoo::Marketing::APT::ReportRequest;
+package Yahoo::Marketing::APT::AudienceSegmentDescriptor;
 # Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
@@ -8,19 +8,16 @@ use base qw/Yahoo::Marketing::ComplexType/;
 
 =head1 NAME
 
-Yahoo::Marketing::APT::ReportRequest - a data object to represent a ReportRequest.
+Yahoo::Marketing::APT::AudienceSegmentDescriptor - a data object to represent a AudienceSegmentDescriptor.
 
 =cut
 
 sub _user_setable_attributes {
     return ( qw/ 
-                 contextID
-                 dataGrouping
-                 dateRange
-                 endDate
-                 reportCurrency 
-                 reportName
-                 startDate
+                 ID
+                 accountID
+                 description
+                 name
             /  );
 }
 
@@ -52,13 +49,10 @@ Creates a new instance
 
 =over 8
 
-    contextID
-    dataGrouping
-    dateRange
-    endDate
-    reportCurrency
-    reportName
-    startDate
+    ID
+    accountID
+    description
+    name
 
 =back
 

@@ -16,6 +16,7 @@ sub _user_setable_attributes {
     return ( qw/ 
                  ID
                  accountID
+                 approvalCategory
                  approvalType
                  approverUserIDs
                  createTimestamp
@@ -58,6 +59,7 @@ Creates a new instance
 
     ID
     accountID
+    approvalCategory
     approvalType
     approverUserIDs
     createTimestamp

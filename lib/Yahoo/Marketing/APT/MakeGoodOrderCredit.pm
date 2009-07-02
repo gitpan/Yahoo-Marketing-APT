@@ -1,4 +1,4 @@
-package Yahoo::Marketing::APT::CustomSegmentDescriptor;
+package Yahoo::Marketing::APT::MakeGoodOrderCredit;
 # Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
@@ -8,16 +8,15 @@ use base qw/Yahoo::Marketing::ComplexType/;
 
 =head1 NAME
 
-Yahoo::Marketing::APT::CustomSegmentDescriptor - a data object to represent a CustomSegmentDescriptor.
+Yahoo::Marketing::APT::MakeGoodOrderCredit - a data object to represent a MakeGoodOrderCredit.
 
 =cut
 
 sub _user_setable_attributes {
     return ( qw/ 
-                 ID
-                 accountID
-                 description
-                 name
+                 amount
+                 date
+                 orderID
             /  );
 }
 
@@ -34,7 +33,7 @@ __PACKAGE__->mk_accessors( __PACKAGE__->_user_setable_attributes,
 1;
 =head1 SYNOPSIS
 
-See L<http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/data/> for documentation of the various data objects.
+See L<TECH_PORTAL_LINK> for documentation of the various data objects.
 
 
 =cut
@@ -49,10 +48,9 @@ Creates a new instance
 
 =over 8
 
-    ID
-    accountID
-    description
-    name
+    amount
+    date
+    orderID
 
 =back
 

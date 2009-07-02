@@ -28,6 +28,7 @@ sub _user_setable_attributes {
                  networkID
                  price
                  priceDate
+                 pricingModel
                  revenueCategory
                  revenueModel
                  sectionIDs
@@ -77,6 +78,7 @@ Creates a new instance
     networkID
     price
     priceDate
+    pricingModel
     revenueCategory
     revenueModel
     sectionIDs

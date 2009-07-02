@@ -1,4 +1,4 @@
-package Yahoo::Marketing::APT::LibraryThirdPartyAd;
+package Yahoo::Marketing::APT::LibraryBumperVideoAd;
 # Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
@@ -8,7 +8,7 @@ use base qw/Yahoo::Marketing::ComplexType/;
 
 =head1 NAME
 
-Yahoo::Marketing::APT::LibraryThirdPartyAd - a data object to represent a LibraryThirdPartyAd.
+Yahoo::Marketing::APT::LibraryBumperVideoAd - a data object to represent a LibraryBumperVideoAd.
 
 =cut
 
@@ -16,23 +16,24 @@ sub _user_setable_attributes {
     return ( qw/ 
                  ID
                  accountID
-                 adBehavior
                  adFormat
-                 adSizeID
                  associatedToAdGroup
+                 compositeClickThroughURL
                  createTimestamp
+                 duration
                  editorialStatus
                  folderID
-                 height
-                 impressionTrackingURL
+                 impressionTrackingURLs
                  lastUpdateTimestamp
                  name
+                 playback0Beacons
+                 playback100Beacons
+                 playback25Beacons
+                 playback50Beacons
+                 playback75Beacons
                  status
-                 tag
-                 tagWithMacros
                  type
-                 vendorID
-                 width
+                 videoCreativeID
             /  );
 }
 
@@ -49,7 +50,7 @@ __PACKAGE__->mk_accessors( __PACKAGE__->_user_setable_attributes,
 1;
 =head1 SYNOPSIS
 
-See L<http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/data/> for documentation of the various data objects.
+See L<TECH_PORTAL_LINK> for documentation of the various data objects.
 
 
 =cut
@@ -66,23 +67,24 @@ Creates a new instance
 
     ID
     accountID
-    adBehavior
     adFormat
-    adSizeID
     associatedToAdGroup
+    compositeClickThroughURL
     createTimestamp
+    duration
     editorialStatus
     folderID
-    height
-    impressionTrackingURL
+    impressionTrackingURLs
     lastUpdateTimestamp
     name
+    playback0Beacons
+    playback100Beacons
+    playback25Beacons
+    playback50Beacons
+    playback75Beacons
     status
-    tag
-    tagWithMacros
     type
-    vendorID
-    width
+    videoCreativeID
 
 =back
 

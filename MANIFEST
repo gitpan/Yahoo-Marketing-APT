@@ -7,6 +7,10 @@ lib/Yahoo/Marketing/APT/AccountResponse.pm
 lib/Yahoo/Marketing/APT/AccountService.pm
 lib/Yahoo/Marketing/APT/Ad.pm
 lib/Yahoo/Marketing/APT/AdCopyResponse.pm
+lib/Yahoo/Marketing/APT/AdDeliveryMode.pm
+lib/Yahoo/Marketing/APT/AdDeliveryModeDescriptor.pm
+lib/Yahoo/Marketing/APT/AdDeliveryModeResponse.pm
+lib/Yahoo/Marketing/APT/AdDeliveryModeService.pm
 lib/Yahoo/Marketing/APT/Address.pm
 lib/Yahoo/Marketing/APT/AdGroup.pm
 lib/Yahoo/Marketing/APT/AdGroupNonGuaranteedSettings.pm
@@ -32,6 +36,7 @@ lib/Yahoo/Marketing/APT/ApprovalTaskService.pm
 lib/Yahoo/Marketing/APT/ApprovalWorkflow.pm
 lib/Yahoo/Marketing/APT/ApprovalWorkflowResponse.pm
 lib/Yahoo/Marketing/APT/ApprovalWorkflowService.pm
+lib/Yahoo/Marketing/APT/AudienceSegmentDescriptor.pm
 lib/Yahoo/Marketing/APT/AudienceSharingRule.pm
 lib/Yahoo/Marketing/APT/AudienceSharingRuleResponse.pm
 lib/Yahoo/Marketing/APT/AudienceSharingRulesService.pm
@@ -48,6 +53,7 @@ lib/Yahoo/Marketing/APT/BusinessProfile.pm
 lib/Yahoo/Marketing/APT/BuyerProfile.pm
 lib/Yahoo/Marketing/APT/Capability.pm
 lib/Yahoo/Marketing/APT/ClickThroughURLSettings.pm
+lib/Yahoo/Marketing/APT/CommonTargetingService.pm
 lib/Yahoo/Marketing/APT/CompanyLink.pm
 lib/Yahoo/Marketing/APT/Complaint.pm
 lib/Yahoo/Marketing/APT/ComplaintReason.pm
@@ -60,6 +66,8 @@ lib/Yahoo/Marketing/APT/Contact.pm
 lib/Yahoo/Marketing/APT/ContactResponse.pm
 lib/Yahoo/Marketing/APT/ContactService.pm
 lib/Yahoo/Marketing/APT/ContentTopic.pm
+lib/Yahoo/Marketing/APT/CostFeed.pm
+lib/Yahoo/Marketing/APT/CostFeedService.pm
 lib/Yahoo/Marketing/APT/CustomContentCategory.pm
 lib/Yahoo/Marketing/APT/CustomContentCategoryDescriptor.pm
 lib/Yahoo/Marketing/APT/CustomContentCategoryResponse.pm
@@ -77,7 +85,6 @@ lib/Yahoo/Marketing/APT/CustomSection.pm
 lib/Yahoo/Marketing/APT/CustomSectionDescriptor.pm
 lib/Yahoo/Marketing/APT/CustomSectionResponse.pm
 lib/Yahoo/Marketing/APT/CustomSegment.pm
-lib/Yahoo/Marketing/APT/CustomSegmentDescriptor.pm
 lib/Yahoo/Marketing/APT/CustomSegmentResponse.pm
 lib/Yahoo/Marketing/APT/CustomSegmentService.pm
 lib/Yahoo/Marketing/APT/DateRange.pm
@@ -118,6 +125,9 @@ lib/Yahoo/Marketing/APT/InventorySearchService.pm
 lib/Yahoo/Marketing/APT/LibraryAdComment.pm
 lib/Yahoo/Marketing/APT/LibraryAdCommentResponse.pm
 lib/Yahoo/Marketing/APT/LibraryAdInformationService.pm
+lib/Yahoo/Marketing/APT/LibraryBumperVideoAd.pm
+lib/Yahoo/Marketing/APT/LibraryBumperVideoAdResponse.pm
+lib/Yahoo/Marketing/APT/LibraryBumperVideoAdService.pm
 lib/Yahoo/Marketing/APT/LibraryClickableVideoAd.pm
 lib/Yahoo/Marketing/APT/LibraryClickableVideoAdResponse.pm
 lib/Yahoo/Marketing/APT/LibraryClickableVideoAdService.pm
@@ -145,9 +155,12 @@ lib/Yahoo/Marketing/APT/LinkingSettings.pm
 lib/Yahoo/Marketing/APT/LinkParticipantDetails.pm
 lib/Yahoo/Marketing/APT/LinkResponse.pm
 lib/Yahoo/Marketing/APT/LocationService.pm
+lib/Yahoo/Marketing/APT/MakeGoodOrderCredit.pm
+lib/Yahoo/Marketing/APT/MonthOfYear.pm
 lib/Yahoo/Marketing/APT/NonGuaranteedDeal.pm
 lib/Yahoo/Marketing/APT/NonGuaranteedDealApproval.pm
 lib/Yahoo/Marketing/APT/Order.pm
+lib/Yahoo/Marketing/APT/OrderAgency.pm
 lib/Yahoo/Marketing/APT/OrderContact.pm
 lib/Yahoo/Marketing/APT/OrderCredit.pm
 lib/Yahoo/Marketing/APT/OrderDiscount.pm
@@ -205,11 +218,13 @@ lib/Yahoo/Marketing/APT/SiteClassificationService.pm
 lib/Yahoo/Marketing/APT/SiteDescriptor.pm
 lib/Yahoo/Marketing/APT/SiteResponse.pm
 lib/Yahoo/Marketing/APT/SiteService.pm
+lib/Yahoo/Marketing/APT/SourceOwner.pm
 lib/Yahoo/Marketing/APT/Tag.pm
 lib/Yahoo/Marketing/APT/TargetingAttribute.pm
 lib/Yahoo/Marketing/APT/TargetingAttributeDescriptor.pm
 lib/Yahoo/Marketing/APT/TargetingAttributeDescriptorWithAny.pm
 lib/Yahoo/Marketing/APT/TargetingAttributeValue.pm
+lib/Yahoo/Marketing/APT/TargetingAttributeValueRequest.pm
 lib/Yahoo/Marketing/APT/TargetingDictionaryService.pm
 lib/Yahoo/Marketing/APT/TargetingProfile.pm
 lib/Yahoo/Marketing/APT/TargetingProfileResponse.pm
@@ -246,6 +261,9 @@ t/account_response.t
 t/account_service.t
 t/ad.t
 t/ad_copy_response.t
+t/ad_delivery_mode.t
+t/ad_delivery_mode_descriptor.t
+t/ad_delivery_mode_response.t
 t/ad_group.t
 t/ad_group_non_guaranteed_settings.t
 t/ad_group_response.t
@@ -271,6 +289,7 @@ t/approval_task_service.t
 t/approval_workflow.t
 t/approval_workflow_response.t
 t/approval_workflow_service.t
+t/audience_segment_descriptor.t
 t/audience_sharing_rule.t
 t/audience_sharing_rule_response.t
 t/audience_sharing_rules_service.t
@@ -298,6 +317,7 @@ t/contact.t
 t/contact_response.t
 t/contact_service.t
 t/content_topic.t
+t/cost_feed.t
 t/custom_content_category.t
 t/custom_content_category_descriptor.t
 t/custom_content_category_response.t
@@ -309,7 +329,6 @@ t/custom_section.t
 t/custom_section_descriptor.t
 t/custom_section_response.t
 t/custom_segment.t
-t/custom_segment_descriptor.t
 t/custom_segment_response.t
 t/custom_segment_service.t
 t/customizable_flash_creative.t
@@ -353,12 +372,16 @@ t/inventory_opt_in.t
 t/inventory_opt_in_response.t
 t/inventory_search_filter.t
 t/inventory_search_service.t
+t/lib/Yahoo/Marketing/APT/Test/#CustomContentCategory.pm#
 t/lib/Yahoo/Marketing/APT/Test/Account.pm
 t/lib/Yahoo/Marketing/APT/Test/AccountDescriptor.pm
 t/lib/Yahoo/Marketing/APT/Test/AccountResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/AccountService.pm
 t/lib/Yahoo/Marketing/APT/Test/Ad.pm
 t/lib/Yahoo/Marketing/APT/Test/AdCopyResponse.pm
+t/lib/Yahoo/Marketing/APT/Test/AdDeliveryMode.pm
+t/lib/Yahoo/Marketing/APT/Test/AdDeliveryModeDescriptor.pm
+t/lib/Yahoo/Marketing/APT/Test/AdDeliveryModeResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/Address.pm
 t/lib/Yahoo/Marketing/APT/Test/AdGroup.pm
 t/lib/Yahoo/Marketing/APT/Test/AdGroupNonGuaranteedSettings.pm
@@ -384,6 +407,7 @@ t/lib/Yahoo/Marketing/APT/Test/ApprovalTaskService.pm
 t/lib/Yahoo/Marketing/APT/Test/ApprovalWorkflow.pm
 t/lib/Yahoo/Marketing/APT/Test/ApprovalWorkflowResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/ApprovalWorkflowService.pm
+t/lib/Yahoo/Marketing/APT/Test/AudienceSegmentDescriptor.pm
 t/lib/Yahoo/Marketing/APT/Test/AudienceSharingRule.pm
 t/lib/Yahoo/Marketing/APT/Test/AudienceSharingRuleResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/AudienceSharingRulesService.pm
@@ -411,6 +435,7 @@ t/lib/Yahoo/Marketing/APT/Test/Contact.pm
 t/lib/Yahoo/Marketing/APT/Test/ContactResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/ContactService.pm
 t/lib/Yahoo/Marketing/APT/Test/ContentTopic.pm
+t/lib/Yahoo/Marketing/APT/Test/CostFeed.pm
 t/lib/Yahoo/Marketing/APT/Test/CustomContentCategory.pm
 t/lib/Yahoo/Marketing/APT/Test/CustomContentCategoryDescriptor.pm
 t/lib/Yahoo/Marketing/APT/Test/CustomContentCategoryResponse.pm
@@ -428,7 +453,6 @@ t/lib/Yahoo/Marketing/APT/Test/CustomSection.pm
 t/lib/Yahoo/Marketing/APT/Test/CustomSectionDescriptor.pm
 t/lib/Yahoo/Marketing/APT/Test/CustomSectionResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/CustomSegment.pm
-t/lib/Yahoo/Marketing/APT/Test/CustomSegmentDescriptor.pm
 t/lib/Yahoo/Marketing/APT/Test/CustomSegmentResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/CustomSegmentService.pm
 t/lib/Yahoo/Marketing/APT/Test/DateRange.pm
@@ -469,6 +493,8 @@ t/lib/Yahoo/Marketing/APT/Test/InventorySearchService.pm
 t/lib/Yahoo/Marketing/APT/Test/LibraryAdComment.pm
 t/lib/Yahoo/Marketing/APT/Test/LibraryAdCommentResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/LibraryAdInformationService.pm
+t/lib/Yahoo/Marketing/APT/Test/LibraryBumperVideoAd.pm
+t/lib/Yahoo/Marketing/APT/Test/LibraryBumperVideoAdResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/LibraryClickableVideoAd.pm
 t/lib/Yahoo/Marketing/APT/Test/LibraryClickableVideoAdResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/LibraryClickableVideoAdService.pm
@@ -496,9 +522,12 @@ t/lib/Yahoo/Marketing/APT/Test/LinkingSettings.pm
 t/lib/Yahoo/Marketing/APT/Test/LinkParticipantDetails.pm
 t/lib/Yahoo/Marketing/APT/Test/LinkResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/LocationService.pm
+t/lib/Yahoo/Marketing/APT/Test/MakeGoodOrderCredit.pm
+t/lib/Yahoo/Marketing/APT/Test/MonthOfYear.pm
 t/lib/Yahoo/Marketing/APT/Test/NonGuaranteedDeal.pm
 t/lib/Yahoo/Marketing/APT/Test/NonGuaranteedDealApproval.pm
 t/lib/Yahoo/Marketing/APT/Test/Order.pm
+t/lib/Yahoo/Marketing/APT/Test/OrderAgency.pm
 t/lib/Yahoo/Marketing/APT/Test/OrderContact.pm
 t/lib/Yahoo/Marketing/APT/Test/OrderCredit.pm
 t/lib/Yahoo/Marketing/APT/Test/OrderFee.pm
@@ -554,11 +583,13 @@ t/lib/Yahoo/Marketing/APT/Test/SiteClassificationService.pm
 t/lib/Yahoo/Marketing/APT/Test/SiteDescriptor.pm
 t/lib/Yahoo/Marketing/APT/Test/SiteResponse.pm
 t/lib/Yahoo/Marketing/APT/Test/SiteService.pm
+t/lib/Yahoo/Marketing/APT/Test/SourceOwner.pm
 t/lib/Yahoo/Marketing/APT/Test/Tag.pm
 t/lib/Yahoo/Marketing/APT/Test/TargetingAttribute.pm
 t/lib/Yahoo/Marketing/APT/Test/TargetingAttributeDescriptor.pm
 t/lib/Yahoo/Marketing/APT/Test/TargetingAttributeDescriptorWithAny.pm
 t/lib/Yahoo/Marketing/APT/Test/TargetingAttributeValue.pm
+t/lib/Yahoo/Marketing/APT/Test/TargetingAttributeValueRequest.pm
 t/lib/Yahoo/Marketing/APT/Test/TargetingDictionaryService.pm
 t/lib/Yahoo/Marketing/APT/Test/TargetingProfile.pm
 t/lib/Yahoo/Marketing/APT/Test/TargetingProfileResponse.pm
@@ -591,6 +622,8 @@ t/libdata/test_img_crtv.gif
 t/library_ad_comment.t
 t/library_ad_comment_response.t
 t/library_ad_information_service.t
+t/library_bumper_video_ad.t
+t/library_bumper_video_ad_response.t
 t/library_clickable_video_ad.t
 t/library_clickable_video_ad_response.t
 t/library_clickable_video_ad_service.t
@@ -617,9 +650,12 @@ t/link_response.t
 t/linking_profile_service.t
 t/linking_service.t
 t/linking_settings.t
+t/make_good_order_credit.t
+t/month_of_year.t
 t/non_guaranteed_deal.t
 t/non_guaranteed_deal_approval.t
 t/order.t
+t/order_agency.t
 t/order_contact.t
 t/order_credit.t
 t/order_fee.t
@@ -674,11 +710,13 @@ t/site_classification_service.t
 t/site_descriptor.t
 t/site_response.t
 t/site_service.t
+t/source_owner.t
 t/tag.t
 t/targeting_attribute.t
 t/targeting_attribute_descriptor.t
 t/targeting_attribute_descriptor_with_any.t
 t/targeting_attribute_value.t
+t/targeting_attribute_value_request.t
 t/targeting_dictionary_service.t
 t/targeting_profile.t
 t/targeting_profile_response.t

@@ -9,11 +9,12 @@ use Test::More;
 
 use Yahoo::Marketing::APT::LibraryThirdPartyAd;
 
-sub test_can_create_library_third_party_ad_and_set_all_fields : Test(19) {
+sub test_can_create_library_third_party_ad_and_set_all_fields : Test(20) {
 
     my $library_third_party_ad = Yahoo::Marketing::APT::LibraryThirdPartyAd->new
                                                                       ->ID( 'id' )
                                                                       ->accountID( 'account id' )
+								      ->adBehavior( 'ad behavior' )
                                                                       ->adFormat( 'ad format' )
                                                                       ->adSizeID( 'ad size id' )
                                                                       ->associatedToAdGroup( 'associated to ad group' )
@@ -36,6 +37,7 @@ sub test_can_create_library_third_party_ad_and_set_all_fields : Test(19) {
 
     is( $library_third_party_ad->ID, 'id', 'can get id' );
     is( $library_third_party_ad->accountID, 'account id', 'can get account id' );
+    is( $library_third_party_ad->adBehavior, 'ad behavior', 'can get ad behavior' ); 
     is( $library_third_party_ad->adFormat, 'ad format', 'can get ad format' );
     is( $library_third_party_ad->adSizeID, 'ad size id', 'can get ad size id' );
     is( $library_third_party_ad->associatedToAdGroup, 'associated to ad group', 'can get associated to ad group' );

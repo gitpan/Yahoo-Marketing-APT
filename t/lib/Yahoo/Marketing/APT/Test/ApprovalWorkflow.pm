@@ -9,11 +9,12 @@ use Test::More;
 
 use Yahoo::Marketing::APT::ApprovalWorkflow;
 
-sub test_can_create_approval_workflow_and_set_all_fields : Test(12) {
+sub test_can_create_approval_workflow_and_set_all_fields : Test(13) {
 
     my $approval_workflow = Yahoo::Marketing::APT::ApprovalWorkflow->new
                                                               ->ID( 'id' )
                                                               ->accountID( 'account id' )
+							      ->approvalCategory( 'approval category' )
                                                               ->approvalType( 'approval type' )
                                                               ->approverUserIDs( 'approver user ids' )
                                                               ->createTimestamp( '2009-01-06T17:51:55' )
@@ -29,6 +30,7 @@ sub test_can_create_approval_workflow_and_set_all_fields : Test(12) {
 
     is( $approval_workflow->ID, 'id', 'can get id' );
     is( $approval_workflow->accountID, 'account id', 'can get account id' );
+    is( $approval_workflow->approvalCategory, 'approval category', 'can get approval category' );
     is( $approval_workflow->approvalType, 'approval type', 'can get approval type' );
     is( $approval_workflow->approverUserIDs, 'approver user ids', 'can get approver user ids' );
     is( $approval_workflow->createTimestamp, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );

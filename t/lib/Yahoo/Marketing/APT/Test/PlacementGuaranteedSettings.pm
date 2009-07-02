@@ -9,7 +9,7 @@ use Test::More;
 
 use Yahoo::Marketing::APT::PlacementGuaranteedSettings;
 
-sub test_can_create_placement_guaranteed_settings_and_set_all_fields : Test(19) {
+sub test_can_create_placement_guaranteed_settings_and_set_all_fields : Test(20) {
 
     my $placement_guaranteed_settings = Yahoo::Marketing::APT::PlacementGuaranteedSettings->new
                                                                                      ->adBehaviorID( 'ad behavior id' )
@@ -26,6 +26,7 @@ sub test_can_create_placement_guaranteed_settings_and_set_all_fields : Test(19) 
                                                                                      ->networkID( 'network id' )
                                                                                      ->price( 'price' )
                                                                                      ->priceDate( '2009-01-06T17:51:55' )
+										     ->pricingModel( 'pricing model' )
                                                                                      ->revenueCategory( 'revenue category' )
                                                                                      ->revenueModel( 'revenue model' )
                                                                                      ->sectionIDs( 'section ids' )
@@ -48,6 +49,7 @@ sub test_can_create_placement_guaranteed_settings_and_set_all_fields : Test(19) 
     is( $placement_guaranteed_settings->networkID, 'network id', 'can get network id' );
     is( $placement_guaranteed_settings->price, 'price', 'can get price' );
     is( $placement_guaranteed_settings->priceDate, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );
+    is( $placement_guaranteed_settings->pricingModel, 'pricing model' );
     is( $placement_guaranteed_settings->revenueCategory, 'revenue category', 'can get revenue category' );
     is( $placement_guaranteed_settings->revenueModel, 'revenue model', 'can get revenue model' );
     is( $placement_guaranteed_settings->sectionIDs, 'section ids', 'can get section ids' );

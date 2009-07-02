@@ -5,7 +5,7 @@
 use strict; use warnings;
 
 use lib 't/lib';
-use Yahoo::Marketing::APT::Test::CustomSegmentDescriptor;
+use Yahoo::Marketing::APT::Test::AudienceSegmentDescriptor;
 
 # run all the test methods in Example::Test
 Test::Class->runtests;

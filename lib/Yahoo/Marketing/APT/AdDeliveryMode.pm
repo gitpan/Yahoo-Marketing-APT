@@ -1,4 +1,4 @@
-package Yahoo::Marketing::APT::ReportRequest;
+package Yahoo::Marketing::APT::AdDeliveryMode;
 # Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
@@ -8,19 +8,18 @@ use base qw/Yahoo::Marketing::ComplexType/;
 
 =head1 NAME
 
-Yahoo::Marketing::APT::ReportRequest - a data object to represent a ReportRequest.
+Yahoo::Marketing::APT::AdDeliveryMode - a data object to represent a AdDeliveryMode.
 
 =cut
 
 sub _user_setable_attributes {
     return ( qw/ 
-                 contextID
-                 dataGrouping
-                 dateRange
-                 endDate
-                 reportCurrency 
-                 reportName
-                 startDate
+                 ID
+                 accountID
+                 description
+                 name
+                 origin
+                 parentID
             /  );
 }
 
@@ -37,7 +36,7 @@ __PACKAGE__->mk_accessors( __PACKAGE__->_user_setable_attributes,
 1;
 =head1 SYNOPSIS
 
-See L<http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/data/> for documentation of the various data objects.
+See L<TECH_PORTAL_LINK> for documentation of the various data objects.
 
 
 =cut
@@ -52,13 +51,12 @@ Creates a new instance
 
 =over 8
 
-    contextID
-    dataGrouping
-    dateRange
-    endDate
-    reportCurrency
-    reportName
-    startDate
+    ID
+    accountID
+    description
+    name
+    origin
+    parentID
 
 =back
 
