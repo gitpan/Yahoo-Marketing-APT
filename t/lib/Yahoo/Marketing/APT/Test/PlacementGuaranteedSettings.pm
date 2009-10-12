@@ -23,10 +23,10 @@ sub test_can_create_placement_guaranteed_settings_and_set_all_fields : Test(20) 
                                                                                      ->deliveryModel( 'delivery model' )
                                                                                      ->impressionGoal( 'impression goal' )
                                                                                      ->inventorySearchFilter( 'inventory search filter' )
-                                                                                     ->networkID( 'network id' )
+                                                                                     ->placementTarget( 'placement target' )
                                                                                      ->price( 'price' )
                                                                                      ->priceDate( '2009-01-06T17:51:55' )
-										     ->pricingModel( 'pricing model' )
+                                                                                     ->pricingModel( 'pricing model' )
                                                                                      ->revenueCategory( 'revenue category' )
                                                                                      ->revenueModel( 'revenue model' )
                                                                                      ->sectionIDs( 'section ids' )
@@ -46,10 +46,10 @@ sub test_can_create_placement_guaranteed_settings_and_set_all_fields : Test(20) 
     is( $placement_guaranteed_settings->deliveryModel, 'delivery model', 'can get delivery model' );
     is( $placement_guaranteed_settings->impressionGoal, 'impression goal', 'can get impression goal' );
     is( $placement_guaranteed_settings->inventorySearchFilter, 'inventory search filter', 'can get inventory search filter' );
-    is( $placement_guaranteed_settings->networkID, 'network id', 'can get network id' );
+    is( $placement_guaranteed_settings->placementTarget, 'placement target', 'can get placement target' );
     is( $placement_guaranteed_settings->price, 'price', 'can get price' );
     is( $placement_guaranteed_settings->priceDate, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );
-    is( $placement_guaranteed_settings->pricingModel, 'pricing model' );
+    is( $placement_guaranteed_settings->pricingModel, 'pricing model', 'can get pricing model' );
     is( $placement_guaranteed_settings->revenueCategory, 'revenue category', 'can get revenue category' );
     is( $placement_guaranteed_settings->revenueModel, 'revenue model', 'can get revenue model' );
     is( $placement_guaranteed_settings->sectionIDs, 'section ids', 'can get section ids' );

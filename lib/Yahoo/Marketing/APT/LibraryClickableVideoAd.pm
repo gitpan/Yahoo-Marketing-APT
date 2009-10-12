@@ -16,6 +16,8 @@ sub _user_setable_attributes {
     return ( qw/ 
                  ID
                  accountID
+                 actOne
+                 actTwo
                  adFormat
                  associatedToAdGroup
                  compositeClickThroughURL
@@ -24,7 +26,6 @@ sub _user_setable_attributes {
                  editorialStatus
                  folderID
                  impressionTrackingURLs
-                 invitationMessage
                  lastUpdateTimestamp
                  name
                  playback0Beacons
@@ -32,7 +33,6 @@ sub _user_setable_attributes {
                  playback25Beacons
                  playback50Beacons
                  playback75Beacons
-                 productMessage
                  status
                  type
                  videoCreativeID
@@ -69,6 +69,8 @@ Creates a new instance
 
     ID
     accountID
+    actOne
+    actTwo
     adFormat
     associatedToAdGroup
     compositeClickThroughURL
@@ -77,7 +79,6 @@ Creates a new instance
     editorialStatus
     folderID
     impressionTrackingURLs
-    invitationMessage
     lastUpdateTimestamp
     name
     playback0Beacons
@@ -85,7 +86,6 @@ Creates a new instance
     playback25Beacons
     playback50Beacons
     playback75Beacons
-    productMessage
     status
     type
     videoCreativeID

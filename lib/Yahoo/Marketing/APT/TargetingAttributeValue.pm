@@ -18,9 +18,11 @@ sub _user_setable_attributes {
                  accountID
                  customTargetingAttributeOwnership
                  description
+                 isActive
                  name
                  origin
                  parentID
+                 parentType
                  sourceOwner
                  type
             /  );
@@ -58,9 +60,11 @@ Creates a new instance
     accountID
     customTargetingAttributeOwnership
     description
+    isActive
     name
     origin
     parentID
+    parentType
     sourceOwner
     type
 

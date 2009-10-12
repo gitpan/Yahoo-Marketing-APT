@@ -14,9 +14,12 @@ Yahoo::Marketing::APT::MakeGoodOrderCredit - a data object to represent a MakeGo
 
 sub _user_setable_attributes {
     return ( qw/ 
+                 ID
                  amount
+                 createdByUserName
                  date
                  orderID
+                 status
             /  );
 }
 
@@ -33,7 +36,7 @@ __PACKAGE__->mk_accessors( __PACKAGE__->_user_setable_attributes,
 1;
 =head1 SYNOPSIS
 
-See L<TECH_PORTAL_LINK> for documentation of the various data objects.
+See L<http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/data/> for documentation of the various data objects.
 
 
 =cut
@@ -48,9 +51,12 @@ Creates a new instance
 
 =over 8
 
+    ID
     amount
+    createdByUserName
     date
     orderID
+    status
 
 =back
 

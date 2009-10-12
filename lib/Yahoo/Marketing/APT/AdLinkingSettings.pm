@@ -15,7 +15,7 @@ Yahoo::Marketing::APT::AdLinkingSettings - a data object to represent a AdLinkin
 sub _user_setable_attributes {
     return ( qw/ 
                  adLinkingType
-                 companionAdSizeIDs
+                 companionAdSettings
                  storyBoardAdSizeID
             /  );
 }
@@ -49,7 +49,7 @@ Creates a new instance
 =over 8
 
     adLinkingType
-    companionAdSizeIDs
+    companionAdSettings
     storyBoardAdSizeID
 
 =back

@@ -16,6 +16,7 @@ sub _user_setable_attributes {
     return ( qw/ 
                  ID
                  accountID
+                 actOne
                  adFormat
                  associatedToAdGroup
                  compositeClickThroughURL
@@ -33,7 +34,6 @@ sub _user_setable_attributes {
                  playback75Beacons
                  status
                  type
-                 videoCreativeID
             /  );
 }
 
@@ -50,7 +50,7 @@ __PACKAGE__->mk_accessors( __PACKAGE__->_user_setable_attributes,
 1;
 =head1 SYNOPSIS
 
-See L<TECH_PORTAL_LINK> for documentation of the various data objects.
+See L<http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/data/> for documentation of the various data objects.
 
 
 =cut
@@ -67,6 +67,7 @@ Creates a new instance
 
     ID
     accountID
+    actOne
     adFormat
     associatedToAdGroup
     compositeClickThroughURL
@@ -84,7 +85,6 @@ Creates a new instance
     playback75Beacons
     status
     type
-    videoCreativeID
 
 =back
 

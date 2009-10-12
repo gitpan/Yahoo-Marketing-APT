@@ -17,7 +17,6 @@ sub _user_setable_attributes {
                  ID
                  currency
                  editable
-                 name
                  published
                  siteID
                  startDate
@@ -56,7 +55,6 @@ Creates a new instance
     ID
     currency
     editable
-    name
     published
     siteID
     startDate

@@ -14,8 +14,8 @@ Yahoo::Marketing::APT::BidDescriptor - a data object to represent a BidDescripto
 
 sub _user_setable_attributes {
     return ( qw/ 
-                 bid
                  bidDate
+                 maxBid
                  pricingModel
             /  );
 }
@@ -48,8 +48,8 @@ Creates a new instance
 
 =over 8
 
-    bid
     bidDate
+    maxBid
     pricingModel
 
 =back

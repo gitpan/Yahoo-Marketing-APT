@@ -17,16 +17,19 @@ sub _user_setable_attributes {
                  ID
                  accountID
                  adGroupID
+                 comments
                  createTimestamp
                  discounts
                  endDate
                  guaranteedSettings
                  lastUpdateTimestamp
                  nonGuaranteedSettings
+                 revisedFromPlacementID
+                 revisedToPlacementID
                  startDate
                  status
-                 transferedFromID
-                 transferedToID
+                 transferedFromPlacementID
+                 transferedToPlacementID
             /  );
 }
 
@@ -61,16 +64,19 @@ Creates a new instance
     ID
     accountID
     adGroupID
+    comments
     createTimestamp
     discounts
     endDate
     guaranteedSettings
     lastUpdateTimestamp
     nonGuaranteedSettings
+    revisedFromPlacementID
+    revisedToPlacementID
     startDate
     status
-    transferedFromID
-    transferedToID
+    transferedFromPlacementID
+    transferedToPlacementID
 
 =back
 

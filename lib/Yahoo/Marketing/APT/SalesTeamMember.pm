@@ -15,8 +15,10 @@ Yahoo::Marketing::APT::SalesTeamMember - a data object to represent a SalesTeamM
 sub _user_setable_attributes {
     return ( qw/ 
                  commissionPercentage
+                 endDate
                  orderCreator
                  primary
+                 startDate
                  userID
             /  );
 }
@@ -50,8 +52,10 @@ Creates a new instance
 =over 8
 
     commissionPercentage
+    endDate
     orderCreator
     primary
+    startDate
     userID
 
 =back

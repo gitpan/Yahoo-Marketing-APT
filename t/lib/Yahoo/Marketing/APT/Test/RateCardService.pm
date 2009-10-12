@@ -47,7 +47,7 @@ sub shutdown_test_site_service : Test(shutdown) {
 }
 
 
-sub test_can_operate_rate_card : Test(35) {
+sub test_can_operate_rate_card : Test(32) {
      my $self = shift;
 
      my $ysm_ws = Yahoo::Marketing::APT::RateCardService->new->parse_config( section => $self->section );
@@ -61,7 +61,6 @@ sub test_can_operate_rate_card : Test(35) {
 
      my $rate_card =  Yahoo::Marketing::APT::RateCard->new
                                                      ->currency( 'USD' )
-                                                     ->name( 'test rate card' )
                                                      ->siteID( $self->common_test_data( 'test_site' )->ID )
                                                      ->startDate( $start_datetime )
                                                          ;
@@ -71,7 +70,6 @@ sub test_can_operate_rate_card : Test(35) {
      is( $response->operationSucceeded, 'true', 'add rate card successfully' );
 
      $rate_card = $response->rateCard;
-     is( $rate_card->name, 'test rate card', 'rate card name matches' );
 
      my $default_base_rate = Yahoo::Marketing::APT::DefaultBaseRate->new
                                                                    ->floorCPM( '5' )
@@ -169,17 +167,14 @@ sub test_can_operate_rate_card : Test(35) {
      is( $rate_adj->percentageMarkup, 40, 'percentage markup matches' );
 
      # test updateRateCard
-     $rate_card->name( 'new rate card' );
      $response = $ysm_ws->updateRateCard( rateCard => $rate_card );
      ok( $response, 'can call updateRateCard' );
      is( $response->operationSucceeded, 'true', 'update rate card successfully' );
      $rate_card = $response->rateCard;
-     is( $rate_card->name, 'new rate card', 'rate card name matches' );
 
      # test getRateCard
      $rate_card = $ysm_ws->getRateCard( rateCardID => $rate_card->ID );
      ok( $rate_card, 'can call getRateCard' );
-     is( $rate_card->name, 'new rate card', 'rate card name matches' );
 
      # test activateRateCard
      $response = $ysm_ws->activateRateCard( rateCardID => $rate_card->ID );
@@ -206,7 +201,7 @@ sub test_can_operate_rate_card : Test(35) {
 }
 
 
-sub test_can_operate_rate_cards : Test(41) {
+sub test_can_operate_rate_cards : Test(38) {
      my $self = shift;
 
      my $ysm_ws = Yahoo::Marketing::APT::RateCardService->new->parse_config( section => $self->section );
@@ -220,7 +215,6 @@ sub test_can_operate_rate_cards : Test(41) {
 
      my $rate_card =  Yahoo::Marketing::APT::RateCard->new
                                                      ->currency( 'USD' )
-                                                     ->name( 'test rate card' )
                                                      ->siteID( $self->common_test_data( 'test_site' )->ID )
                                                      ->startDate( $start_datetime )
                                                          ;
@@ -230,7 +224,6 @@ sub test_can_operate_rate_cards : Test(41) {
      is( $responses[0]->operationSucceeded, 'true', 'add rate cards successfully' );
 
      $rate_card = $responses[0]->rateCard;
-     is( $rate_card->name, 'test rate card', 'rate card name matches' );
 
      my $default_base_rate = Yahoo::Marketing::APT::DefaultBaseRate->new
                                                                    ->floorCPM( '5' )
@@ -356,17 +349,14 @@ sub test_can_operate_rate_cards : Test(41) {
      is( $rate_adj->percentageMarkup, 40, 'percentage markup matches');
 
      # test updateRateCards
-     $rate_card->name( 'new rate card' );
      @responses = $ysm_ws->updateRateCards( rateCards => [$rate_card] );
      ok( @responses, 'can call updateRateCards' );
      is( $responses[0]->operationSucceeded, 'true', 'update rate cards successfully' );
      $rate_card = $responses[0]->rateCard;
-     is( $rate_card->name, 'new rate card', 'rate card name matches' );
 
      # test getRateCards
      my @rate_cards = $ysm_ws->getRateCards( rateCardIDs => [$rate_card->ID] );
      ok( @rate_cards, 'can call getRateCards' );
-     is( $rate_cards[0]->name, 'new rate card', 'rate card name matches' );
 
      # test getRateCardsBySiteID
      @rate_cards = $ysm_ws->getRateCardsBySiteID( siteID => $self->common_test_data( 'test_site' )->ID );

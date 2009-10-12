@@ -13,14 +13,14 @@ sub test_can_create_ad_linking_settings_and_set_all_fields : Test(4) {
 
     my $ad_linking_settings = Yahoo::Marketing::APT::AdLinkingSettings->new
                                                                  ->adLinkingType( 'ad linking type' )
-                                                                 ->companionAdSizeIDs( 'companion ad size ids' )
+                                                                 ->companionAdSettings( 'companion ad settings' )
                                                                  ->storyBoardAdSizeID( 'story board ad size id' )
                    ;
 
     ok( $ad_linking_settings );
 
     is( $ad_linking_settings->adLinkingType, 'ad linking type', 'can get ad linking type' );
-    is( $ad_linking_settings->companionAdSizeIDs, 'companion ad size ids', 'can get companion ad size ids' );
+    is( $ad_linking_settings->companionAdSettings, 'companion ad settings', 'can get companion ad settings' );
     is( $ad_linking_settings->storyBoardAdSizeID, 'story board ad size id', 'can get story board ad size id' );
 
 };

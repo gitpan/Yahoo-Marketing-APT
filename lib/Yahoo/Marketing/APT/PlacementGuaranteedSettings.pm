@@ -25,7 +25,7 @@ sub _user_setable_attributes {
                  deliveryModel
                  impressionGoal
                  inventorySearchFilter
-                 networkID
+                 placementTarget
                  price
                  priceDate
                  pricingModel
@@ -75,7 +75,7 @@ Creates a new instance
     deliveryModel
     impressionGoal
     inventorySearchFilter
-    networkID
+    placementTarget
     price
     priceDate
     pricingModel

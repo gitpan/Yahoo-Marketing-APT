@@ -14,6 +14,7 @@ sub test_can_create_library_bumper_video_ad_and_set_all_fields : Test(21) {
     my $library_bumper_video_ad = Yahoo::Marketing::APT::LibraryBumperVideoAd->new
                                                                         ->ID( 'id' )
                                                                         ->accountID( 'account id' )
+                                                                        ->actOne( 'act one' )
                                                                         ->adFormat( 'ad format' )
                                                                         ->associatedToAdGroup( 'associated to ad group' )
                                                                         ->compositeClickThroughURL( 'composite click through url' )
@@ -31,13 +32,13 @@ sub test_can_create_library_bumper_video_ad_and_set_all_fields : Test(21) {
                                                                         ->playback75Beacons( 'playback75 beacons' )
                                                                         ->status( 'status' )
                                                                         ->type( 'type' )
-                                                                        ->videoCreativeID( 'video creative id' )
                    ;
 
     ok( $library_bumper_video_ad );
 
     is( $library_bumper_video_ad->ID, 'id', 'can get id' );
     is( $library_bumper_video_ad->accountID, 'account id', 'can get account id' );
+    is( $library_bumper_video_ad->actOne, 'act one', 'can get act one' );
     is( $library_bumper_video_ad->adFormat, 'ad format', 'can get ad format' );
     is( $library_bumper_video_ad->associatedToAdGroup, 'associated to ad group', 'can get associated to ad group' );
     is( $library_bumper_video_ad->compositeClickThroughURL, 'composite click through url', 'can get composite click through url' );
@@ -55,7 +56,6 @@ sub test_can_create_library_bumper_video_ad_and_set_all_fields : Test(21) {
     is( $library_bumper_video_ad->playback75Beacons, 'playback75 beacons', 'can get playback75 beacons' );
     is( $library_bumper_video_ad->status, 'status', 'can get status' );
     is( $library_bumper_video_ad->type, 'type', 'can get type' );
-    is( $library_bumper_video_ad->videoCreativeID, 'video creative id', 'can get video creative id' );
 
 };
 

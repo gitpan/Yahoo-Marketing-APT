@@ -9,13 +9,12 @@ use Test::More;
 
 use Yahoo::Marketing::APT::RateCard;
 
-sub test_can_create_rate_card_and_set_all_fields : Test(9) {
+sub test_can_create_rate_card_and_set_all_fields : Test(8) {
 
     my $rate_card = Yahoo::Marketing::APT::RateCard->new
                                               ->ID( 'id' )
                                               ->currency( 'currency' )
                                               ->editable( 'editable' )
-                                              ->name( 'name' )
                                               ->published( 'published' )
                                               ->siteID( 'site id' )
                                               ->startDate( '2009-01-06T17:51:55' )
@@ -27,7 +26,6 @@ sub test_can_create_rate_card_and_set_all_fields : Test(9) {
     is( $rate_card->ID, 'id', 'can get id' );
     is( $rate_card->currency, 'currency', 'can get currency' );
     is( $rate_card->editable, 'editable', 'can get editable' );
-    is( $rate_card->name, 'name', 'can get name' );
     is( $rate_card->published, 'published', 'can get published' );
     is( $rate_card->siteID, 'site id', 'can get site id' );
     is( $rate_card->startDate, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );

@@ -1,6 +1,6 @@
 ---
 name: Yahoo-Marketing-APT
-version: 3.01
+version: 4.01
 author:
   - 'Johnny Shen <nycperl@yahoo.com>'
 abstract: an interface for Yahoo! Search Marketing's APT Web Services.
@@ -22,7 +22,7 @@ requires:
   Test::Simple: 0.60
   XML::XPath: 1.10
   YAML: 0.01
-  Yahoo::Marketing: 5.06
+  Yahoo::Marketing: 5.21
   perl: 5.6.1
 build_requires:
   Module::Build: 0.26
@@ -31,7 +31,7 @@ build_requires:
 provides:
   Yahoo::Marketing::APT:
     file: lib/Yahoo/Marketing/APT.pm
-    version: 3.01
+    version: 4.01
   Yahoo::Marketing::APT::Account:
     file: lib/Yahoo/Marketing/APT/Account.pm
   Yahoo::Marketing::APT::AccountDescriptor:
@@ -74,6 +74,24 @@ provides:
     file: lib/Yahoo/Marketing/APT/AdTagService.pm
   Yahoo::Marketing::APT::Address:
     file: lib/Yahoo/Marketing/APT/Address.pm
+  Yahoo::Marketing::APT::AdjustmentCertifiedFeed:
+    file: lib/Yahoo/Marketing/APT/AdjustmentCertifiedFeed.pm
+  Yahoo::Marketing::APT::AdjustmentInboundFeed:
+    file: lib/Yahoo/Marketing/APT/AdjustmentInboundFeed.pm
+  Yahoo::Marketing::APT::AdjustmentInboundFeedAddRequest:
+    file: lib/Yahoo/Marketing/APT/AdjustmentInboundFeedAddRequest.pm
+  Yahoo::Marketing::APT::AdjustmentInboundFeedAddResponse:
+    file: lib/Yahoo/Marketing/APT/AdjustmentInboundFeedAddResponse.pm
+  Yahoo::Marketing::APT::AdjustmentOrder:
+    file: lib/Yahoo/Marketing/APT/AdjustmentOrder.pm
+  Yahoo::Marketing::APT::AdjustmentOrderRequest:
+    file: lib/Yahoo/Marketing/APT/AdjustmentOrderRequest.pm
+  Yahoo::Marketing::APT::AdjustmentPlacement:
+    file: lib/Yahoo/Marketing/APT/AdjustmentPlacement.pm
+  Yahoo::Marketing::APT::AdjustmentPlacementRequest:
+    file: lib/Yahoo/Marketing/APT/AdjustmentPlacementRequest.pm
+  Yahoo::Marketing::APT::AdjustmentService:
+    file: lib/Yahoo/Marketing/APT/AdjustmentService.pm
   Yahoo::Marketing::APT::AgencyContract:
     file: lib/Yahoo/Marketing/APT/AgencyContract.pm
   Yahoo::Marketing::APT::AlternateImage:
@@ -102,6 +120,12 @@ provides:
     file: lib/Yahoo/Marketing/APT/ApprovalWorkflowResponse.pm
   Yahoo::Marketing::APT::ApprovalWorkflowService:
     file: lib/Yahoo/Marketing/APT/ApprovalWorkflowService.pm
+  Yahoo::Marketing::APT::AudienceSegmentCategory:
+    file: lib/Yahoo/Marketing/APT/AudienceSegmentCategory.pm
+  Yahoo::Marketing::APT::AudienceSegmentCategoryResponse:
+    file: lib/Yahoo/Marketing/APT/AudienceSegmentCategoryResponse.pm
+  Yahoo::Marketing::APT::AudienceSegmentCategoryService:
+    file: lib/Yahoo/Marketing/APT/AudienceSegmentCategoryService.pm
   Yahoo::Marketing::APT::AudienceSegmentDescriptor:
     file: lib/Yahoo/Marketing/APT/AudienceSegmentDescriptor.pm
   Yahoo::Marketing::APT::AudienceSharingRule:
@@ -128,6 +152,8 @@ provides:
     file: lib/Yahoo/Marketing/APT/BookingLimit.pm
   Yahoo::Marketing::APT::BookingLimitResponse:
     file: lib/Yahoo/Marketing/APT/BookingLimitResponse.pm
+  Yahoo::Marketing::APT::BumperVideoActOne:
+    file: lib/Yahoo/Marketing/APT/BumperVideoActOne.pm
   Yahoo::Marketing::APT::BusinessProfile:
     file: lib/Yahoo/Marketing/APT/BusinessProfile.pm
   Yahoo::Marketing::APT::BuyerProfile:
@@ -136,8 +162,14 @@ provides:
     file: lib/Yahoo/Marketing/APT/Capability.pm
   Yahoo::Marketing::APT::ClickThroughURLSettings:
     file: lib/Yahoo/Marketing/APT/ClickThroughURLSettings.pm
+  Yahoo::Marketing::APT::ClickableVideoActOne:
+    file: lib/Yahoo/Marketing/APT/ClickableVideoActOne.pm
+  Yahoo::Marketing::APT::ClickableVideoActTwo:
+    file: lib/Yahoo/Marketing/APT/ClickableVideoActTwo.pm
   Yahoo::Marketing::APT::CommonTargetingService:
     file: lib/Yahoo/Marketing/APT/CommonTargetingService.pm
+  Yahoo::Marketing::APT::CompanionAdSetting:
+    file: lib/Yahoo/Marketing/APT/CompanionAdSetting.pm
   Yahoo::Marketing::APT::CompanyLink:
     file: lib/Yahoo/Marketing/APT/CompanyLink.pm
   Yahoo::Marketing::APT::Complaint:
@@ -162,6 +194,8 @@ provides:
     file: lib/Yahoo/Marketing/APT/ContactService.pm
   Yahoo::Marketing::APT::ContentTopic:
     file: lib/Yahoo/Marketing/APT/ContentTopic.pm
+  Yahoo::Marketing::APT::CopyAdGroupRequest:
+    file: lib/Yahoo/Marketing/APT/CopyAdGroupRequest.pm
   Yahoo::Marketing::APT::CostFeed:
     file: lib/Yahoo/Marketing/APT/CostFeed.pm
   Yahoo::Marketing::APT::CostFeedService:
@@ -216,6 +250,10 @@ provides:
     file: lib/Yahoo/Marketing/APT/DefaultBaseRateResponse.pm
   Yahoo::Marketing::APT::DeliveryFormat:
     file: lib/Yahoo/Marketing/APT/DeliveryFormat.pm
+  Yahoo::Marketing::APT::DeliveryGoal:
+    file: lib/Yahoo/Marketing/APT/DeliveryGoal.pm
+  Yahoo::Marketing::APT::DeliveryStats:
+    file: lib/Yahoo/Marketing/APT/DeliveryStats.pm
   Yahoo::Marketing::APT::Discount:
     file: lib/Yahoo/Marketing/APT/Discount.pm
   Yahoo::Marketing::APT::EditorialService:
@@ -286,6 +324,18 @@ provides:
     file: lib/Yahoo/Marketing/APT/LibraryBumperVideoAdResponse.pm
   Yahoo::Marketing::APT::LibraryBumperVideoAdService:
     file: lib/Yahoo/Marketing/APT/LibraryBumperVideoAdService.pm
+  Yahoo::Marketing::APT::LibraryClickToSiteOverlayVideoAd:
+    file: lib/Yahoo/Marketing/APT/LibraryClickToSiteOverlayVideoAd.pm
+  Yahoo::Marketing::APT::LibraryClickToSiteOverlayVideoAdResponse:
+    file: lib/Yahoo/Marketing/APT/LibraryClickToSiteOverlayVideoAdResponse.pm
+  Yahoo::Marketing::APT::LibraryClickToSiteOverlayVideoAdService:
+    file: lib/Yahoo/Marketing/APT/LibraryClickToSiteOverlayVideoAdService.pm
+  Yahoo::Marketing::APT::LibraryClickToVideoOverlayVideoAd:
+    file: lib/Yahoo/Marketing/APT/LibraryClickToVideoOverlayVideoAd.pm
+  Yahoo::Marketing::APT::LibraryClickToVideoOverlayVideoAdResponse:
+    file: lib/Yahoo/Marketing/APT/LibraryClickToVideoOverlayVideoAdResponse.pm
+  Yahoo::Marketing::APT::LibraryClickToVideoOverlayVideoAdService:
+    file: lib/Yahoo/Marketing/APT/LibraryClickToVideoOverlayVideoAdService.pm
   Yahoo::Marketing::APT::LibraryClickableVideoAd:
     file: lib/Yahoo/Marketing/APT/LibraryClickableVideoAd.pm
   Yahoo::Marketing::APT::LibraryClickableVideoAdResponse:
@@ -342,6 +392,8 @@ provides:
     file: lib/Yahoo/Marketing/APT/LocationService.pm
   Yahoo::Marketing::APT::MakeGoodOrderCredit:
     file: lib/Yahoo/Marketing/APT/MakeGoodOrderCredit.pm
+  Yahoo::Marketing::APT::MakeGoodOrderCreditResponse:
+    file: lib/Yahoo/Marketing/APT/MakeGoodOrderCreditResponse.pm
   Yahoo::Marketing::APT::MonthOfYear:
     file: lib/Yahoo/Marketing/APT/MonthOfYear.pm
   Yahoo::Marketing::APT::NonGuaranteedDeal:
@@ -356,6 +408,8 @@ provides:
     file: lib/Yahoo/Marketing/APT/OrderContact.pm
   Yahoo::Marketing::APT::OrderCredit:
     file: lib/Yahoo/Marketing/APT/OrderCredit.pm
+  Yahoo::Marketing::APT::OrderCreditResponse:
+    file: lib/Yahoo/Marketing/APT/OrderCreditResponse.pm
   Yahoo::Marketing::APT::OrderDiscount:
     file: lib/Yahoo/Marketing/APT/OrderDiscount.pm
   Yahoo::Marketing::APT::OrderFee:
@@ -366,6 +420,10 @@ provides:
     file: lib/Yahoo/Marketing/APT/OrderResponse.pm
   Yahoo::Marketing::APT::OrderService:
     file: lib/Yahoo/Marketing/APT/OrderService.pm
+  Yahoo::Marketing::APT::OverlayVideoActOne:
+    file: lib/Yahoo/Marketing/APT/OverlayVideoActOne.pm
+  Yahoo::Marketing::APT::OverlayVideoActTwo:
+    file: lib/Yahoo/Marketing/APT/OverlayVideoActTwo.pm
   Yahoo::Marketing::APT::Palette:
     file: lib/Yahoo/Marketing/APT/Palette.pm
   Yahoo::Marketing::APT::PaletteResponse:
@@ -392,6 +450,8 @@ provides:
     file: lib/Yahoo/Marketing/APT/PlacementResponse.pm
   Yahoo::Marketing::APT::PlacementService:
     file: lib/Yahoo/Marketing/APT/PlacementService.pm
+  Yahoo::Marketing::APT::PlacementTarget:
+    file: lib/Yahoo/Marketing/APT/PlacementTarget.pm
   Yahoo::Marketing::APT::PlacementTargetDescriptor:
     file: lib/Yahoo/Marketing/APT/PlacementTargetDescriptor.pm
   Yahoo::Marketing::APT::PlacementTransferResponse:
@@ -412,6 +472,10 @@ provides:
     file: lib/Yahoo/Marketing/APT/RateCardResponse.pm
   Yahoo::Marketing::APT::RateCardService:
     file: lib/Yahoo/Marketing/APT/RateCardService.pm
+  Yahoo::Marketing::APT::ReconciliationComment:
+    file: lib/Yahoo/Marketing/APT/ReconciliationComment.pm
+  Yahoo::Marketing::APT::ReconciliationRule:
+    file: lib/Yahoo/Marketing/APT/ReconciliationRule.pm
   Yahoo::Marketing::APT::Region:
     file: lib/Yahoo/Marketing/APT/Region.pm
   Yahoo::Marketing::APT::RegionLevel:
@@ -504,6 +568,8 @@ provides:
     file: lib/Yahoo/Marketing/APT/UniversalFilter.pm
   Yahoo::Marketing::APT::UniversalFilterResponse:
     file: lib/Yahoo/Marketing/APT/UniversalFilterResponse.pm
+  Yahoo::Marketing::APT::UpdatePlacementResponse:
+    file: lib/Yahoo/Marketing/APT/UpdatePlacementResponse.pm
   Yahoo::Marketing::APT::UploadService:
     file: lib/Yahoo/Marketing/APT/UploadService.pm
   Yahoo::Marketing::APT::Url:

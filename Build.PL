@@ -11,8 +11,8 @@ my $builder = Module::Build->subclass(
                  our $run_post;  
 
                  my %config_defaults = ( endpoint       => 'https://sandbox.apt.yahooapis.com/services',
-                                         uri            => 'http://apt.yahooapis.com/V3',
-                                         version        => 'V3',
+                                         uri            => 'http://apt.yahooapis.com/V4',
+                                         version        => 'V4',
                                        );
 
                  sub ACTION_posttest {
@@ -130,7 +130,7 @@ my $build = $builder->new(
         'Module::Build'  => '0.26',  
     },
     requires => {
-        'Yahoo::Marketing'           => '5.06',
+        'Yahoo::Marketing'           => '5.21',
         'Test::More'                 => 0,
         'perl'                       => '5.6.1',   
         'SOAP::Lite'                 => '0.66',

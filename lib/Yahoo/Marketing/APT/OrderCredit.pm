@@ -14,9 +14,15 @@ Yahoo::Marketing::APT::OrderCredit - a data object to represent a OrderCredit.
 
 sub _user_setable_attributes {
     return ( qw/ 
+                 ID
                  amount
+                 billingMonth
+                 createdByUserName
                  date
                  orderID
+                 placementID
+                 reason
+                 status
             /  );
 }
 
@@ -48,9 +54,15 @@ Creates a new instance
 
 =over 8
 
+    ID
     amount
+    billingMonth
+    createdByUserName
     date
     orderID
+    placementID
+    reason
+    status
 
 =back
 

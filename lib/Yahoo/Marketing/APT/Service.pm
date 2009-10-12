@@ -17,6 +17,8 @@ AccountStatus
 AccountType
 AdFormat
 AdGroupStatus
+AdjustmentInboundFeedStatus
+AdjustmentInboundFeedType
 AdLinkingType
 AdStatus
 AdStatus
@@ -48,6 +50,7 @@ DayOfTheWeek
 DealApprovalStatus
 DeliveryMethod
 DeliveryModel
+DeliveryType
 DiscountFormat
 DiscountType
 DistanceUnits
@@ -64,15 +67,19 @@ Month
 OperationResult
 OptimizationMetric
 OrderContactType
+OrderCreditStatus
 OrderFeeType
 OrderStatus
 Origin
 PixelCodeType
 PixelFrequencyType
 PlacementStatus
+PlacementTargetType
 PricingType
+ProcessingStatus
 PublisherSelectorType
 RateCardStatus
+ReconciliationAction
 ReportCurrency
 ReportDateRange
 ReportExecutionStatus
