@@ -184,6 +184,80 @@ sub _class_name {
     return $1;
 }
 
+
+# since APT web service v4.0, the wsdl has changed structure,
+# so we have to override some methods from Service.pm in parent class.
+sub _parse_wsdl {
+    my ( $self, ) = @_;
+
+    if( my $wsdl_data = $self->cache->get( $self->_wsdl ) ){
+        $Yahoo::Marketing::Service::service_data->{ $self->_wsdl } = $wsdl_data;
+        return;
+    }
+
+    my $xpath = XML::XPath->new(
+        xml => SOAP::Schema->new(schema_url => $self->_wsdl )->access
+	);
+
+    foreach my $node ( $xpath->find( q{/wsdl:definitions/wsdl:types/xsd:schema/* } )->get_nodelist ){
+        my $name = $node->getName;
+        if( $name eq 'xsd:complexType' ){
+            if( $node->getAttribute('name') and ($node->getAttribute('name') =~ /^[a-z].+Response(Type)?$/) ){
+                $self->_parse_response_type( $node, $xpath );
+            }elsif( $node->getAttribute('name') and ($node->getAttribute('name') =~ /^[a-z]/) ) {
+                $self->_parse_request_type( $node, $xpath );
+            }else{
+                $self->_parse_complex_type( $node, $xpath );
+            }
+        }
+    }
+
+    $self->cache->set( $self->_wsdl, $Yahoo::Marketing::Service::service_data->{ $self->_wsdl }, $self->cache_expire_time );
+    return;
+}
+
+sub _parse_request_type {
+    my ( $self, $node, $xpath ) = @_;
+    my $type_name = $node->getAttribute( 'name' );
+
+    return unless $type_name;
+
+    my $def = $xpath->find( qq{/wsdl:definitions/wsdl:types/xsd:schema/xsd:complexType[\@name='$type_name']/xsd:sequence/xsd:element} );
+
+    return unless $def;
+
+    foreach my $def_node ( $def->get_nodelist ){
+
+        my $name = $def_node->getAttribute( 'name' );
+        my $type = $def_node->getAttribute( 'type' );
+
+        $Yahoo::Marketing::Service::service_data->{ $self->_wsdl }->{ type_map }->{ $type_name }->{ _name } = $name ;
+        $Yahoo::Marketing::Service::service_data->{ $self->_wsdl }->{ type_map }->{ $type_name }->{ $name } = $type ;
+    }
+
+    return;
+}
+
+sub _parse_response_type {
+    my ( $self, $node, $xpath ) = @_;
+    my $type_name = $node->getAttribute( 'name' );
+    $type_name =~ s/(^tns:)|(^xsd:)//;
+
+    my $def = $xpath->find( qq{/wsdl:definitions/wsdl:types/xsd:schema/xsd:complexType[\@name='$type_name']/xsd:sequence/xsd:element[\@name='out']} );
+    return unless $def;
+
+    my $def_node = ($def->get_nodelist)[0];   # there's always just one
+
+    ( my $name = $def_node->getAttribute( 'name' ) ) =~ s/^tns://;
+    ( my $type = $def_node->getAttribute( 'type' ) ) =~ s/^tns://;
+
+    $Yahoo::Marketing::Service::service_data->{ $self->_wsdl }->{ type_map }->{ $type_name }->{ _name } = $name ;
+    $Yahoo::Marketing::Service::service_data->{ $self->_wsdl }->{ type_map }->{ $type_name }->{ $name } = $type ;
+
+    return;
+}
+
+
 1; # end of Yahoo::Marketing::APT::Service
 
 

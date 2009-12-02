@@ -12,13 +12,13 @@ Yahoo::Marketing::APT - an interface for Yahoo! Search Marketing's APT Web Servi
 
 =head1 VERSION
 
-Version 4.01
+Version 4.11
 
 =cut
 
 # not using 3 part version #s,
 # see http://www.perlmonks.org/?node_id=520850
-our $VERSION = '4.01';
+our $VERSION = '4.11';
 
 =head1 SYNOPSIS
 

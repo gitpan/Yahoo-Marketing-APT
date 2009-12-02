@@ -16,3 +16,6 @@ Revision history for Yahoo-Marketing-APT
         Upgrade for Yahoo APT V3.0.
 4.01    12 October 2009
         Upgrade for Yahoo APT V4.0.
+4.11    2 December 2009
+        Upgrade for Yahoo APT V4.1.0.
+        Override some parsing related methods in Service.pm due to APT web services wsdl changed structure since V4.0.
