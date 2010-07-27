@@ -19,7 +19,7 @@ Sample Usage:
     $service->password( 'your password' );
     $service->license( 'your license' );
     $service->account( 'your account ID' );
-    $service->endpoint( 'https://sandbox.apt.yahooapis.com/services/V4' );
+    $service->endpoint( 'https://sandbox.apt.yahooapis.com/services/V6' );
     $service->wsdl_init;
 
     # OR
@@ -76,6 +76,6 @@ You can also look for information at:
 
 COPYRIGHT AND LICENCE
 
-Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 

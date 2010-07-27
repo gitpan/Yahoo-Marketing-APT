@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::LibraryImageAd;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -17,7 +17,7 @@ sub test_can_create_library_image_ad_and_set_all_fields : Test(23) {
                                                            ->adFormat( 'ad format' )
                                                            ->adSizeID( 'ad size id' )
                                                            ->alternateText( 'alternate text' )
-                                                           ->associatedToAdGroup( 'associated to ad group' )
+                                                           ->associatedToPlacement( 'associated to placement' )
                                                            ->compositeClickThroughURL( 'composite click through url' )
                                                            ->createTimestamp( '2009-01-06T17:51:55' )
                                                            ->editorialStatus( 'editorial status' )
@@ -43,7 +43,7 @@ sub test_can_create_library_image_ad_and_set_all_fields : Test(23) {
     is( $library_image_ad->adFormat, 'ad format', 'can get ad format' );
     is( $library_image_ad->adSizeID, 'ad size id', 'can get ad size id' );
     is( $library_image_ad->alternateText, 'alternate text', 'can get alternate text' );
-    is( $library_image_ad->associatedToAdGroup, 'associated to ad group', 'can get associated to ad group' );
+    is( $library_image_ad->associatedToPlacement, 'associated to placement', 'can get associated to placement' );
     is( $library_image_ad->compositeClickThroughURL, 'composite click through url', 'can get composite click through url' );
     is( $library_image_ad->createTimestamp, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );
     is( $library_image_ad->editorialStatus, 'editorial status', 'can get editorial status' );

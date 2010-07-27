@@ -1,5 +1,5 @@
-package Yahoo::Marketing::APT::AdGroupService;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
+package Yahoo::Marketing::APT::RoleService;
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -9,7 +9,7 @@ use base qw/Yahoo::Marketing::APT::Service/;
 
 =head1 NAME
 
-Yahoo::Marketing::APT::AdGroupService - an object that provides operations for managing ad groups.
+Yahoo::Marketing::APT::RoleService - RoleService provides operations for creating and managing roles.
 
 =cut
 
@@ -17,7 +17,7 @@ Yahoo::Marketing::APT::AdGroupService - an object that provides operations for m
 
 See EWS documentation online for available SOAP methods:
 
-http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/services/
+http://help.yahoo.com/l/us/yahoo/ewsapt/webservices/reference/services/
 
 Also see perldoc Yahoo::Marketing::Service for functionality common to all service modules.
 

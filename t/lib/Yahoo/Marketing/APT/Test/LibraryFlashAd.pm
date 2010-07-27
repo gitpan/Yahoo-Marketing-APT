@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::LibraryFlashAd;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -17,7 +17,7 @@ sub test_can_create_library_flash_ad_and_set_all_fields : Test(23) {
                                                            ->adFormat( 'ad format' )
                                                            ->adSizeID( 'ad size id' )
                                                            ->alternateImage( 'alternate image' )
-                                                           ->associatedToAdGroup( 'associated to ad group' )
+                                                           ->associatedToPlacement( 'associated to placement' )
                                                            ->compositeClickThroughURLs( 'composite click through urls' )
                                                            ->createTimestamp( '2009-01-06T17:51:55' )
                                                            ->editorialStatus( 'editorial status' )
@@ -43,7 +43,7 @@ sub test_can_create_library_flash_ad_and_set_all_fields : Test(23) {
     is( $library_flash_ad->adFormat, 'ad format', 'can get ad format' );
     is( $library_flash_ad->adSizeID, 'ad size id', 'can get ad size id' );
     is( $library_flash_ad->alternateImage, 'alternate image', 'can get alternate image' );
-    is( $library_flash_ad->associatedToAdGroup, 'associated to ad group', 'can get associated to ad group' );
+    is( $library_flash_ad->associatedToPlacement, 'associated to placement', 'can get associated to placement' );
     is( $library_flash_ad->compositeClickThroughURLs, 'composite click through urls', 'can get composite click through urls' );
     is( $library_flash_ad->createTimestamp, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );
     is( $library_flash_ad->editorialStatus, 'editorial status', 'can get editorial status' );

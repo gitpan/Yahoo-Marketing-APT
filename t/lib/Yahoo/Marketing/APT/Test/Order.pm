@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::Order;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -9,7 +9,7 @@ use Test::More;
 
 use Yahoo::Marketing::APT::Order;
 
-sub test_can_create_order_and_set_all_fields : Test(22) {
+sub test_can_create_order_and_set_all_fields : Test(23) {
 
     my $order = Yahoo::Marketing::APT::Order->new
                                        ->ID( 'id' )
@@ -25,6 +25,7 @@ sub test_can_create_order_and_set_all_fields : Test(22) {
                                        ->externalOrderID( 'external order id' )
                                        ->grossCost( 'gross cost' )
                                        ->internalComments( 'internal comments' )
+                                       ->isBillOnThirdParty( 'is bill on third party' )
                                        ->isInternal( 'is internal' )
                                        ->lastUpdateTimestamp( '2009-01-08T17:51:55' )
                                        ->name( 'name' )
@@ -50,6 +51,7 @@ sub test_can_create_order_and_set_all_fields : Test(22) {
     is( $order->externalOrderID, 'external order id', 'can get external order id' );
     is( $order->grossCost, 'gross cost', 'can get gross cost' );
     is( $order->internalComments, 'internal comments', 'can get internal comments' );
+    is( $order->isBillOnThirdParty, 'is bill on third party', 'can get is bill on third party' );
     is( $order->isInternal, 'is internal', 'can get is internal' );
     is( $order->lastUpdateTimestamp, '2009-01-08T17:51:55', 'can get 2009-01-08T17:51:55' );
     is( $order->name, 'name', 'can get name' );

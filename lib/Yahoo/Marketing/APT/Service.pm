@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Service;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use strict; use warnings;
@@ -15,12 +15,12 @@ return (qw/
 AccountDescriptorType
 AccountStatus
 AccountType
+AdBehavior
 AdFormat
-AdGroupStatus
 AdjustmentInboundFeedStatus
 AdjustmentInboundFeedType
 AdLinkingType
-AdStatus
+AdSecurity
 AdStatus
 AdType
 AgreementStatus
@@ -34,6 +34,7 @@ ApprovalType
 ApprovalWorkflowExecutionType
 ApprovalWorkflowNotificationType
 ApprovalWorkflowStatus
+ApproverType
 AudienceSegmentStatus
 BuyType
 ColumnFormatType
@@ -48,6 +49,7 @@ CustomTargetingAttributeOwnership
 DataGrouping
 DayOfTheWeek
 DealApprovalStatus
+DeliveryLevel
 DeliveryMethod
 DeliveryModel
 DeliveryType
@@ -55,9 +57,11 @@ DiscountFormat
 DiscountType
 DistanceUnits
 EditorialStatus
+EndDateChangeType
 FileType
 FolderItemType
 FolderType
+ImpressionChangeType
 Language
 LibraryAdStatus
 LinkedCompanyType
@@ -68,13 +72,17 @@ OperationResult
 OptimizationMetric
 OrderContactType
 OrderCreditStatus
+OrderFeeStatus
 OrderFeeType
 OrderStatus
 Origin
 PixelCodeType
 PixelFrequencyType
+PlacementEditQtyChangeType
+PlacementEditQtyType
 PlacementStatus
 PlacementTargetType
+PriceChangeType
 PricingType
 ProcessingStatus
 PublisherSelectorType
@@ -85,7 +93,6 @@ ReportDateRange
 ReportExecutionStatus
 ReportFrequency
 RevenueModel
-Role
 SearchAccountType
 SellingRuleType
 ServiceContext
@@ -272,7 +279,7 @@ FolderService, ReportService, etc) to inherit from.  It should not be used direc
 
 Please see the Yahoo APT API docs at
 
-http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/index.html
+http://help.yahoo.com/l/us/yahoo/ewsapt/webservices/reference/index.html
 
 for details about what methods are available from each of the Services.
 

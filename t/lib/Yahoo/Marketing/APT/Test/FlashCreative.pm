@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::FlashCreative;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -9,11 +9,12 @@ use Test::More;
 
 use Yahoo::Marketing::APT::FlashCreative;
 
-sub test_can_create_flash_creative_and_set_all_fields : Test(22) {
+sub test_can_create_flash_creative_and_set_all_fields : Test(23) {
 
     my $flash_creative = Yahoo::Marketing::APT::FlashCreative->new
                                                         ->ID( 'id' )
                                                         ->accountID( 'account id' )
+                                                        ->actionScriptVersion( 'action script version' )
                                                         ->binaryData( 'binary data' )
                                                         ->createTimestamp( '2009-01-06T17:51:55' )
                                                         ->fileExtension( 'file extension' )
@@ -39,6 +40,7 @@ sub test_can_create_flash_creative_and_set_all_fields : Test(22) {
 
     is( $flash_creative->ID, 'id', 'can get id' );
     is( $flash_creative->accountID, 'account id', 'can get account id' );
+    is( $flash_creative->actionScriptVersion, 'action script version', 'can get action script version' );
     is( $flash_creative->binaryData, 'binary data', 'can get binary data' );
     is( $flash_creative->createTimestamp, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );
     is( $flash_creative->fileExtension, 'file extension', 'can get file extension' );

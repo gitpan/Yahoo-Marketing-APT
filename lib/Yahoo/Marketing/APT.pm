@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997)
 
 use warnings;
@@ -12,13 +12,13 @@ Yahoo::Marketing::APT - an interface for Yahoo! Search Marketing's APT Web Servi
 
 =head1 VERSION
 
-Version 4.11
+Version 6.01
 
 =cut
 
 # not using 3 part version #s,
 # see http://www.perlmonks.org/?node_id=520850
-our $VERSION = '4.11';
+our $VERSION = '6.01';
 
 =head1 SYNOPSIS
 
@@ -39,7 +39,7 @@ Sample Usage:
     $service->password( 'your password' );
     $service->license( 'your license' );
     $service->account( 'your account ID' );
-    $service->endpoint( 'https://sandbox.apt.yahooapis.com/services/V4' );
+    $service->endpoint( 'https://sandbox.apt.yahooapis.com/services/V6' );
 
     # OR
 
@@ -178,17 +178,17 @@ so master_account entry is optional for config file in Yahoo::Marketing::APT.
    endpoint: https://endpoint.host/services
    license: your-ews-license
    password: secretpassword
-   uri: http://apt.yahooapis.com/V4
+   uri: http://apt.yahooapis.com/V6
    username: defaultusername
-   version: V4
+   version: V6
  sandbox:
    default_account: 21921327
    endpoint: https://sandbox.apt.yahooapis.com/services
    license: 90837ada-3b26-c2e5-6d59-61d7f2fb578e
    password: mypassword
-   uri: http://apt.yahooapis.com/V4
+   uri: http://apt.yahooapis.com/V6
    username: mytestusername
-   version: V4
+   version: V6
 
 
 =head1 DEBUGGING

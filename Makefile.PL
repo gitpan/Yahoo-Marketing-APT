@@ -22,7 +22,6 @@ WriteMakefile
                            'Yahoo::Marketing' => '5.21'
                          },
           'INSTALLDIRS' => 'site',
-          'EXE_FILES' => [],
           'PL_FILES' => {}
         )
 ;

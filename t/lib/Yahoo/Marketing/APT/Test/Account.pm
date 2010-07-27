@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::Account;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -24,8 +24,8 @@ sub test_can_create_account_and_set_all_fields : Test(19) {
                                            ->externalAccountID( 'external account id' )
                                            ->language( 'language' )
                                            ->location( 'location' )
-					   ->managedAccount( 'managed account' )
-					   ->managedAgencyBillingEnabled( 'managed agency billing enabled' )
+                                           ->managedAccount( 'managed account' )
+                                           ->managedAgencyBillingEnabled( 'managed agency billing enabled' )
                                            ->managingAccountID( 'managing account id' )
                                            ->status( 'status' )
                                            ->timezone( 'timezone' )

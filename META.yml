@@ -1,12 +1,10 @@
 ---
 name: Yahoo-Marketing-APT
-version: 4.11
+version: 6.01
 author:
   - 'Johnny Shen <nycperl@yahoo.com>'
 abstract: an interface for Yahoo! Search Marketing's APT Web Services.
 license: artistic
-resources:
-  license: http://opensource.org/licenses/artistic-license.php
 requires:
   Cache::Cache: 1.01
   Class::Accessor::Chained: 0.01
@@ -31,7 +29,7 @@ build_requires:
 provides:
   Yahoo::Marketing::APT:
     file: lib/Yahoo/Marketing/APT.pm
-    version: 4.11
+    version: 6.01
   Yahoo::Marketing::APT::Account:
     file: lib/Yahoo/Marketing/APT/Account.pm
   Yahoo::Marketing::APT::AccountDescriptor:
@@ -42,6 +40,8 @@ provides:
     file: lib/Yahoo/Marketing/APT/AccountService.pm
   Yahoo::Marketing::APT::Ad:
     file: lib/Yahoo/Marketing/APT/Ad.pm
+  Yahoo::Marketing::APT::AdAttributes:
+    file: lib/Yahoo/Marketing/APT/AdAttributes.pm
   Yahoo::Marketing::APT::AdCopyResponse:
     file: lib/Yahoo/Marketing/APT/AdCopyResponse.pm
   Yahoo::Marketing::APT::AdDeliveryMode:
@@ -58,10 +58,16 @@ provides:
     file: lib/Yahoo/Marketing/APT/AdGroupNonGuaranteedSettings.pm
   Yahoo::Marketing::APT::AdGroupResponse:
     file: lib/Yahoo/Marketing/APT/AdGroupResponse.pm
-  Yahoo::Marketing::APT::AdGroupService:
-    file: lib/Yahoo/Marketing/APT/AdGroupService.pm
   Yahoo::Marketing::APT::AdLinkingSettings:
     file: lib/Yahoo/Marketing/APT/AdLinkingSettings.pm
+  Yahoo::Marketing::APT::AdMarker:
+    file: lib/Yahoo/Marketing/APT/AdMarker.pm
+  Yahoo::Marketing::APT::AdMarkerResponse:
+    file: lib/Yahoo/Marketing/APT/AdMarkerResponse.pm
+  Yahoo::Marketing::APT::AdMarkerService:
+    file: lib/Yahoo/Marketing/APT/AdMarkerService.pm
+  Yahoo::Marketing::APT::AdMarkerSettings:
+    file: lib/Yahoo/Marketing/APT/AdMarkerSettings.pm
   Yahoo::Marketing::APT::AdOperationsTeamMember:
     file: lib/Yahoo/Marketing/APT/AdOperationsTeamMember.pm
   Yahoo::Marketing::APT::AdResponse:
@@ -120,6 +126,10 @@ provides:
     file: lib/Yahoo/Marketing/APT/ApprovalWorkflowResponse.pm
   Yahoo::Marketing::APT::ApprovalWorkflowService:
     file: lib/Yahoo/Marketing/APT/ApprovalWorkflowService.pm
+  Yahoo::Marketing::APT::Approver:
+    file: lib/Yahoo/Marketing/APT/Approver.pm
+  Yahoo::Marketing::APT::AttributeSetting:
+    file: lib/Yahoo/Marketing/APT/AttributeSetting.pm
   Yahoo::Marketing::APT::AudienceSegmentCategory:
     file: lib/Yahoo/Marketing/APT/AudienceSegmentCategory.pm
   Yahoo::Marketing::APT::AudienceSegmentCategoryResponse:
@@ -192,6 +202,8 @@ provides:
     file: lib/Yahoo/Marketing/APT/ContactResponse.pm
   Yahoo::Marketing::APT::ContactService:
     file: lib/Yahoo/Marketing/APT/ContactService.pm
+  Yahoo::Marketing::APT::ContentTargetingAttributes:
+    file: lib/Yahoo/Marketing/APT/ContentTargetingAttributes.pm
   Yahoo::Marketing::APT::ContentTopic:
     file: lib/Yahoo/Marketing/APT/ContentTopic.pm
   Yahoo::Marketing::APT::CopyAdGroupRequest:
@@ -296,6 +308,14 @@ provides:
     file: lib/Yahoo/Marketing/APT/ImageFlashVariableConstraints.pm
   Yahoo::Marketing::APT::ImageFlashVariableValue:
     file: lib/Yahoo/Marketing/APT/ImageFlashVariableValue.pm
+  Yahoo::Marketing::APT::InteractivePharmaceuticalVideoActFour:
+    file: lib/Yahoo/Marketing/APT/InteractivePharmaceuticalVideoActFour.pm
+  Yahoo::Marketing::APT::InteractivePharmaceuticalVideoActOne:
+    file: lib/Yahoo/Marketing/APT/InteractivePharmaceuticalVideoActOne.pm
+  Yahoo::Marketing::APT::InteractivePharmaceuticalVideoActThree:
+    file: lib/Yahoo/Marketing/APT/InteractivePharmaceuticalVideoActThree.pm
+  Yahoo::Marketing::APT::InteractivePharmaceuticalVideoActTwo:
+    file: lib/Yahoo/Marketing/APT/InteractivePharmaceuticalVideoActTwo.pm
   Yahoo::Marketing::APT::Inventory:
     file: lib/Yahoo/Marketing/APT/Inventory.pm
   Yahoo::Marketing::APT::InventoryIdentifier:
@@ -366,6 +386,12 @@ provides:
     file: lib/Yahoo/Marketing/APT/LibraryImageAdResponse.pm
   Yahoo::Marketing::APT::LibraryImageAdService:
     file: lib/Yahoo/Marketing/APT/LibraryImageAdService.pm
+  Yahoo::Marketing::APT::LibraryInteractivePharmaceuticalVideoAd:
+    file: lib/Yahoo/Marketing/APT/LibraryInteractivePharmaceuticalVideoAd.pm
+  Yahoo::Marketing::APT::LibraryInteractivePharmaceuticalVideoAdResponse:
+    file: lib/Yahoo/Marketing/APT/LibraryInteractivePharmaceuticalVideoAdResponse.pm
+  Yahoo::Marketing::APT::LibraryInteractivePharmaceuticalVideoAdService:
+    file: lib/Yahoo/Marketing/APT/LibraryInteractivePharmaceuticalVideoAdService.pm
   Yahoo::Marketing::APT::LibraryThirdPartyAd:
     file: lib/Yahoo/Marketing/APT/LibraryThirdPartyAd.pm
   Yahoo::Marketing::APT::LibraryThirdPartyAdResponse:
@@ -442,8 +468,30 @@ provides:
     file: lib/Yahoo/Marketing/APT/PixelService.pm
   Yahoo::Marketing::APT::Placement:
     file: lib/Yahoo/Marketing/APT/Placement.pm
+  Yahoo::Marketing::APT::PlacementAdAttributes:
+    file: lib/Yahoo/Marketing/APT/PlacementAdAttributes.pm
+  Yahoo::Marketing::APT::PlacementAudienceTargetingAttributes:
+    file: lib/Yahoo/Marketing/APT/PlacementAudienceTargetingAttributes.pm
+  Yahoo::Marketing::APT::PlacementContentTargetingAttributes:
+    file: lib/Yahoo/Marketing/APT/PlacementContentTargetingAttributes.pm
+  Yahoo::Marketing::APT::PlacementDetail:
+    file: lib/Yahoo/Marketing/APT/PlacementDetail.pm
+  Yahoo::Marketing::APT::PlacementEditEndDate:
+    file: lib/Yahoo/Marketing/APT/PlacementEditEndDate.pm
+  Yahoo::Marketing::APT::PlacementEditImpression:
+    file: lib/Yahoo/Marketing/APT/PlacementEditImpression.pm
+  Yahoo::Marketing::APT::PlacementEditPrice:
+    file: lib/Yahoo/Marketing/APT/PlacementEditPrice.pm
+  Yahoo::Marketing::APT::PlacementEditSettings:
+    file: lib/Yahoo/Marketing/APT/PlacementEditSettings.pm
+  Yahoo::Marketing::APT::PlacementFrequencyTargetingAttributes:
+    file: lib/Yahoo/Marketing/APT/PlacementFrequencyTargetingAttributes.pm
+  Yahoo::Marketing::APT::PlacementGuaranteedPriceSettings:
+    file: lib/Yahoo/Marketing/APT/PlacementGuaranteedPriceSettings.pm
   Yahoo::Marketing::APT::PlacementGuaranteedSettings:
     file: lib/Yahoo/Marketing/APT/PlacementGuaranteedSettings.pm
+  Yahoo::Marketing::APT::PlacementNonGuaranteedPriceSettings:
+    file: lib/Yahoo/Marketing/APT/PlacementNonGuaranteedPriceSettings.pm
   Yahoo::Marketing::APT::PlacementNonGuaranteedSettings:
     file: lib/Yahoo/Marketing/APT/PlacementNonGuaranteedSettings.pm
   Yahoo::Marketing::APT::PlacementResponse:
@@ -454,8 +502,12 @@ provides:
     file: lib/Yahoo/Marketing/APT/PlacementTarget.pm
   Yahoo::Marketing::APT::PlacementTargetDescriptor:
     file: lib/Yahoo/Marketing/APT/PlacementTargetDescriptor.pm
+  Yahoo::Marketing::APT::PlacementTargetingDetails:
+    file: lib/Yahoo/Marketing/APT/PlacementTargetingDetails.pm
   Yahoo::Marketing::APT::PlacementTransferResponse:
     file: lib/Yahoo/Marketing/APT/PlacementTransferResponse.pm
+  Yahoo::Marketing::APT::Privilege:
+    file: lib/Yahoo/Marketing/APT/Privilege.pm
   Yahoo::Marketing::APT::ProfileContact:
     file: lib/Yahoo/Marketing/APT/ProfileContact.pm
   Yahoo::Marketing::APT::PublisherSelector:
@@ -476,6 +528,12 @@ provides:
     file: lib/Yahoo/Marketing/APT/ReconciliationComment.pm
   Yahoo::Marketing::APT::ReconciliationRule:
     file: lib/Yahoo/Marketing/APT/ReconciliationRule.pm
+  Yahoo::Marketing::APT::ReferralSegment:
+    file: lib/Yahoo/Marketing/APT/ReferralSegment.pm
+  Yahoo::Marketing::APT::ReferralSegmentResponse:
+    file: lib/Yahoo/Marketing/APT/ReferralSegmentResponse.pm
+  Yahoo::Marketing::APT::ReferralSegmentService:
+    file: lib/Yahoo/Marketing/APT/ReferralSegmentService.pm
   Yahoo::Marketing::APT::Region:
     file: lib/Yahoo/Marketing/APT/Region.pm
   Yahoo::Marketing::APT::RegionLevel:
@@ -500,6 +558,12 @@ provides:
     file: lib/Yahoo/Marketing/APT/ReportingTagResponse.pm
   Yahoo::Marketing::APT::ReportingTagService:
     file: lib/Yahoo/Marketing/APT/ReportingTagService.pm
+  Yahoo::Marketing::APT::Role:
+    file: lib/Yahoo/Marketing/APT/Role.pm
+  Yahoo::Marketing::APT::RoleResponse:
+    file: lib/Yahoo/Marketing/APT/RoleResponse.pm
+  Yahoo::Marketing::APT::RoleService:
+    file: lib/Yahoo/Marketing/APT/RoleService.pm
   Yahoo::Marketing::APT::SalesTeamMember:
     file: lib/Yahoo/Marketing/APT/SalesTeamMember.pm
   Yahoo::Marketing::APT::ScheduledReport:
@@ -530,6 +594,10 @@ provides:
     file: lib/Yahoo/Marketing/APT/SiteResponse.pm
   Yahoo::Marketing::APT::SiteService:
     file: lib/Yahoo/Marketing/APT/SiteService.pm
+  Yahoo::Marketing::APT::SiteStructure:
+    file: lib/Yahoo/Marketing/APT/SiteStructure.pm
+  Yahoo::Marketing::APT::SiteStructureSettings:
+    file: lib/Yahoo/Marketing/APT/SiteStructureSettings.pm
   Yahoo::Marketing::APT::SourceOwner:
     file: lib/Yahoo/Marketing/APT/SourceOwner.pm
   Yahoo::Marketing::APT::Tag:
@@ -540,6 +608,8 @@ provides:
     file: lib/Yahoo/Marketing/APT/TargetingAttributeDescriptor.pm
   Yahoo::Marketing::APT::TargetingAttributeDescriptorWithAny:
     file: lib/Yahoo/Marketing/APT/TargetingAttributeDescriptorWithAny.pm
+  Yahoo::Marketing::APT::TargetingAttributeDetails:
+    file: lib/Yahoo/Marketing/APT/TargetingAttributeDetails.pm
   Yahoo::Marketing::APT::TargetingAttributeValue:
     file: lib/Yahoo/Marketing/APT/TargetingAttributeValue.pm
   Yahoo::Marketing::APT::TargetingAttributeValueRequest:
@@ -596,7 +666,4 @@ provides:
     file: lib/Yahoo/Marketing/APT/YahooPremiumBehavioralSegmentTargeting.pm
   Yahoo::Marketing::APT::ZippedCreativesResponse:
     file: lib/Yahoo/Marketing/APT/ZippedCreativesResponse.pm
-generated_by: Module::Build version 0.2808
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+generated_by: Module::Build version 0.261

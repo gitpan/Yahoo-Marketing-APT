@@ -1,5 +1,5 @@
 use strict;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 use warnings;
 use Module::Build;
@@ -11,8 +11,8 @@ my $builder = Module::Build->subclass(
                  our $run_post;  
 
                  my %config_defaults = ( endpoint       => 'https://sandbox.apt.yahooapis.com/services',
-                                         uri            => 'http://apt.yahooapis.com/V4',
-                                         version        => 'V4',
+                                         uri            => 'http://apt.yahooapis.com/V6',
+                                         version        => 'V6',
                                        );
 
                  sub ACTION_posttest {

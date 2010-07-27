@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::LibraryCustomHTMLAd;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -16,7 +16,7 @@ sub test_can_create_library_custom_htmlad_and_set_all_fields : Test(18) {
                                                                      ->accountID( 'account id' )
                                                                      ->adFormat( 'ad format' )
                                                                      ->adSizeID( 'ad size id' )
-                                                                     ->associatedToAdGroup( 'associated to ad group' )
+                                                                     ->associatedToPlacement( 'associated to placement' )
                                                                      ->createTimestamp( '2009-01-06T17:51:55' )
                                                                      ->creativeIDs( 'creative ids' )
                                                                      ->editorialStatus( 'editorial status' )
@@ -37,7 +37,7 @@ sub test_can_create_library_custom_htmlad_and_set_all_fields : Test(18) {
     is( $library_custom_htmlad->accountID, 'account id', 'can get account id' );
     is( $library_custom_htmlad->adFormat, 'ad format', 'can get ad format' );
     is( $library_custom_htmlad->adSizeID, 'ad size id', 'can get ad size id' );
-    is( $library_custom_htmlad->associatedToAdGroup, 'associated to ad group', 'can get associated to ad group' );
+    is( $library_custom_htmlad->associatedToPlacement, 'associated to placement', 'can get associated to placement' );
     is( $library_custom_htmlad->createTimestamp, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );
     is( $library_custom_htmlad->creativeIDs, 'creative ids', 'can get creative ids' );
     is( $library_custom_htmlad->editorialStatus, 'editorial status', 'can get editorial status' );

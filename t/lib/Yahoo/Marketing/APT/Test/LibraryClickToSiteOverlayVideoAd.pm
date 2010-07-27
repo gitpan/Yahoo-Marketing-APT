@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::LibraryClickToSiteOverlayVideoAd;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -17,7 +17,7 @@ sub test_can_create_library_click_to_site_overlay_video_ad_and_set_all_fields : 
                                                                                                    ->actOne( 'act one' )
                                                                                                    ->actTwo( 'act two' )
                                                                                                    ->adFormat( 'ad format' )
-                                                                                                   ->associatedToAdGroup( 'associated to ad group' )
+                                                                                                   ->associatedToPlacement( 'associated to placement' )
                                                                                                    ->compositeClickThroughURL( 'composite click through url' )
                                                                                                    ->createTimestamp( '2009-01-06T17:51:55' )
                                                                                                    ->editorialStatus( 'editorial status' )
@@ -36,7 +36,7 @@ sub test_can_create_library_click_to_site_overlay_video_ad_and_set_all_fields : 
     is( $library_click_to_site_overlay_video_ad->actOne, 'act one', 'can get act one' );
     is( $library_click_to_site_overlay_video_ad->actTwo, 'act two', 'can get act two' );
     is( $library_click_to_site_overlay_video_ad->adFormat, 'ad format', 'can get ad format' );
-    is( $library_click_to_site_overlay_video_ad->associatedToAdGroup, 'associated to ad group', 'can get associated to ad group' );
+    is( $library_click_to_site_overlay_video_ad->associatedToPlacement, 'associated to placement', 'can get associated to placement' );
     is( $library_click_to_site_overlay_video_ad->compositeClickThroughURL, 'composite click through url', 'can get composite click through url' );
     is( $library_click_to_site_overlay_video_ad->createTimestamp, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );
     is( $library_click_to_site_overlay_video_ad->editorialStatus, 'editorial status', 'can get editorial status' );

@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::CustomSegment;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -9,12 +9,13 @@ use Test::More;
 
 use Yahoo::Marketing::APT::CustomSegment;
 
-sub test_can_create_custom_segment_and_set_all_fields : Test(12) {
+sub test_can_create_custom_segment_and_set_all_fields : Test(13) {
 
     my $custom_segment = Yahoo::Marketing::APT::CustomSegment->new
                                                         ->ID( 'id' )
                                                         ->accountID( 'account id' )
                                                         ->activationTimestamp( '2009-01-06T17:51:55' )
+                                                        ->audienceSegmentCategoryID( 'audience segment category id' )
                                                         ->createTimestamp( '2009-01-07T17:51:55' )
                                                         ->deactivationTimestamp( '2009-01-08T17:51:55' )
                                                         ->description( 'description' )
@@ -30,6 +31,7 @@ sub test_can_create_custom_segment_and_set_all_fields : Test(12) {
     is( $custom_segment->ID, 'id', 'can get id' );
     is( $custom_segment->accountID, 'account id', 'can get account id' );
     is( $custom_segment->activationTimestamp, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );
+    is( $custom_segment->audienceSegmentCategoryID, 'audience segment category id', 'can get audience segment category id' );
     is( $custom_segment->createTimestamp, '2009-01-07T17:51:55', 'can get 2009-01-07T17:51:55' );
     is( $custom_segment->deactivationTimestamp, '2009-01-08T17:51:55', 'can get 2009-01-08T17:51:55' );
     is( $custom_segment->description, 'description', 'can get description' );

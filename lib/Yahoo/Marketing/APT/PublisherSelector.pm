@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::PublisherSelector;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -15,6 +15,7 @@ Yahoo::Marketing::APT::PublisherSelector - a data object to represent a Publishe
 sub _user_setable_attributes {
     return ( qw/ 
                  publisherAccountIDs
+                 siteIDs
                  type
             /  );
 }
@@ -32,7 +33,7 @@ __PACKAGE__->mk_accessors( __PACKAGE__->_user_setable_attributes,
 1;
 =head1 SYNOPSIS
 
-See L<http://help.yahoo.com/l/us/yahoo/apt/webservices/reference/data/> for documentation of the various data objects.
+See L<http://help.yahoo.com/l/us/yahoo/ewsapt/webservices/reference/data/> for documentation of the various data objects.
 
 
 =cut
@@ -48,6 +49,7 @@ Creates a new instance
 =over 8
 
     publisherAccountIDs
+    siteIDs
     type
 
 =back

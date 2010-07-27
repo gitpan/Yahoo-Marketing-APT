@@ -1,5 +1,5 @@
 package Yahoo::Marketing::APT::Test::ApprovalWorkflow;
-# Copyright (c) 2009 Yahoo! Inc.  All rights reserved.  
+# Copyright (c) 2010 Yahoo! Inc.  All rights reserved.  
 # The copyrights to the contents of this file are licensed under the Perl Artistic License (ver. 15 Aug 1997) 
 
 use strict; use warnings;
@@ -14,9 +14,9 @@ sub test_can_create_approval_workflow_and_set_all_fields : Test(13) {
     my $approval_workflow = Yahoo::Marketing::APT::ApprovalWorkflow->new
                                                               ->ID( 'id' )
                                                               ->accountID( 'account id' )
-							      ->approvalCategory( 'approval category' )
+                                                              ->approvalCategory( 'approval category' )
                                                               ->approvalType( 'approval type' )
-                                                              ->approverUserIDs( 'approver user ids' )
+                                                              ->approvers( 'approvers' )
                                                               ->createTimestamp( '2009-01-06T17:51:55' )
                                                               ->lastUpdateTimestamp( '2009-01-07T17:51:55' )
                                                               ->name( 'name' )
@@ -32,7 +32,7 @@ sub test_can_create_approval_workflow_and_set_all_fields : Test(13) {
     is( $approval_workflow->accountID, 'account id', 'can get account id' );
     is( $approval_workflow->approvalCategory, 'approval category', 'can get approval category' );
     is( $approval_workflow->approvalType, 'approval type', 'can get approval type' );
-    is( $approval_workflow->approverUserIDs, 'approver user ids', 'can get approver user ids' );
+    is( $approval_workflow->approvers, 'approvers', 'can get approvers' );
     is( $approval_workflow->createTimestamp, '2009-01-06T17:51:55', 'can get 2009-01-06T17:51:55' );
     is( $approval_workflow->lastUpdateTimestamp, '2009-01-07T17:51:55', 'can get 2009-01-07T17:51:55' );
     is( $approval_workflow->name, 'name', 'can get name' );
